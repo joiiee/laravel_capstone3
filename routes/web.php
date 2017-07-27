@@ -11,24 +11,17 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 use App\User;
 
-Route::get('/',function(){
-$users = User::all();
-$connections = Auth::user()->myRequests->merge(Auth::user()->theirRequests);
-$pending_requests = Auth::user()->pendingRequests();
-$friends = Auth::user()->friends();
-
-return view('/profile', compact('users','connections','pending_requests','friends'));
-});
-
 Route::get('/users', 'UserController@showUser');
 
-Route::get('/users/profile/{id}', 'UserController@showProfile');
+// Route::get('/users', 'UserController@showUser');
+
+// Route::get('/users/profile/{id}', 'UserController@showProfile');
 
 Route::post('add_friend/{id}',function($id){
 	$user = User::find($id);
@@ -40,6 +33,37 @@ Route::post('add_friend/{id}',function($id){
 
 	return back();
 });
+
+Route::post('accept_request/{id}', function($id){
+	Auth::user()->acceptRequest($id);
+	Session::flash('message','Friend Added');
+	return redirect('/users');
+	// return back();
+});
+
+
+Route::post('decline_request/{id}', function($id){
+	Auth::user()->declineRequest($id);
+
+	return redirect('/users');
+});
+
+Route::post('/users/cancel_request/{id}',function($id){
+	Auth::user()->cancelRequest($id);
+
+	return redirect('/users');
+});
+
+
+// Route::get('/users/profile', 'UserController@showProfile');
+
+Route::post('/users/profile','UserController@saveNewPost');
+
+Route::get('/users/profile','UserController@showPosts');
+
+Route::post('like', 'LikeController@addLike');
+
+Route::post('unlike', 'LikeController@deleteLike');
 
 
 

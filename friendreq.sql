@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 20, 2017 at 10:59 AM
+-- Generation Time: Jul 26, 2017 at 04:02 PM
 -- Server version: 10.1.21-MariaDB
--- PHP Version: 7.1.2
+-- PHP Version: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -43,13 +43,16 @@ INSERT INTO `friend_requests` (`id`, `from`, `to`, `status`, `created_at`, `upda
 (1, '21', '3', 0, NULL, NULL),
 (2, '21', '5', 0, NULL, NULL),
 (3, '21', '6', 0, NULL, NULL),
-(4, '21', '4', 0, NULL, NULL),
-(7, '21', '2', 0, NULL, NULL),
+(4, '21', '4', 1, NULL, NULL),
+(7, '21', '2', 1, NULL, NULL),
 (8, '21', '9', 0, NULL, NULL),
-(10, '21', '1', 0, NULL, NULL),
+(10, '21', '1', 1, NULL, NULL),
 (11, '21', '11', 0, NULL, NULL),
-(12, '21', '22', 0, NULL, NULL),
-(13, '21', '7', 0, NULL, NULL);
+(13, '21', '7', 0, NULL, NULL),
+(14, '21', '10', 0, NULL, NULL),
+(16, '1', '2', 1, NULL, NULL),
+(17, '21', '22', 0, NULL, NULL),
+(18, '22', '20', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -70,7 +73,9 @@ CREATE TABLE `migrations` (
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (1, '2014_10_12_000000_create_users_table', 1),
 (2, '2014_10_12_100000_create_password_resets_table', 1),
-(3, '2017_07_20_023237_friendRequest', 2);
+(3, '2017_07_20_023237_friendRequest', 2),
+(4, '2017_07_26_055851_createPostsTable', 3),
+(5, '2017_07_26_082537_add_image_to_posts_table', 4);
 
 -- --------------------------------------------------------
 
@@ -83,6 +88,35 @@ CREATE TABLE `password_resets` (
   `token` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `posts`
+--
+
+CREATE TABLE `posts` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `what` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `where` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `when` date NOT NULL,
+  `caption` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `imagepost` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `posts`
+--
+
+INSERT INTO `posts` (`id`, `user_id`, `what`, `where`, `when`, `caption`, `created_at`, `updated_at`, `imagepost`) VALUES
+(1, 21, 'adfadsfsd', 'fadfsadsf', '2017-07-26', 'adfasdfsd', '2017-07-25 22:48:26', '2017-07-25 22:48:26', ''),
+(2, 21, 'aq', 'aq', '2017-07-26', 'aq', '2017-07-25 22:50:45', '2017-07-25 22:50:45', ''),
+(3, 21, 'adfadsf', 'asdfasdf', '2017-07-27', 'adfadsf', '2017-07-25 22:51:44', '2017-07-25 22:51:44', ''),
+(4, 21, 'sample post kitakita', 'japan', '2017-08-06', 'fadfasf', '2017-07-26 00:33:05', '2017-07-26 00:33:05', 'cam.jpg'),
+(5, 21, 'sample itey', 'sample itey', '2017-07-27', 'sample caption', '2017-07-26 03:48:46', '2017-07-26 03:48:46', NULL);
 
 -- --------------------------------------------------------
 
@@ -106,10 +140,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `avatar`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Mariane Heidenreich', 'pleffler@bruen.net', '$2y$10$vMUGa8p25JJc52/FUkFeQ.aVPdsX1wkHYhKDZxu6KgHP3nss2bgQK', 'http://lorempixel.com/200/200/?69144', NULL, NULL, NULL),
-(2, 'Dr. Ken Reilly', 'kutch.caleb@yahoo.com', '$2y$10$sE0bWOlAWf1P/qz1qgmtVO1XxjAJv6dPotYlWU69CfDm/S67WCpfG', 'http://lorempixel.com/200/200/?34879', NULL, NULL, NULL),
+(1, 'Mariane Heidenreich', 'pleffler@bruen.net', '$2y$10$vMUGa8p25JJc52/FUkFeQ.aVPdsX1wkHYhKDZxu6KgHP3nss2bgQK', 'http://lorempixel.com/200/200/?69144', '664UEO2pgoRKIJhKRDCnFWUqkRIzdod8lhtS8iJHlL2QZKmvjqE9CrKnQHS5', NULL, NULL),
+(2, 'Dr. Ken Reilly', 'kutch.caleb@yahoo.com', '$2y$10$sE0bWOlAWf1P/qz1qgmtVO1XxjAJv6dPotYlWU69CfDm/S67WCpfG', 'http://lorempixel.com/200/200/?34879', 'akrIm06akmh9m6FNYMQ0nJWN4Dmk8pdJGKUeITEEqjyTjkZnrt17iJCZuk4a', NULL, NULL),
 (3, 'Ms. Alyson Witting III', 'abelardo.brown@nader.info', '$2y$10$40NUH2E78It5yrODEWo.X.2HbCunahskI6O0aUpwO7gLYs15L/OeK', 'http://lorempixel.com/200/200/?80970', NULL, NULL, NULL),
-(4, 'Dr. Jaycee Thiel V', 'dell97@little.com', '$2y$10$1NG/AYfh53ol0faMoH76R.IvtZ1O9epBlZirY9gi8Q5V7h0eTmleC', 'http://lorempixel.com/200/200/?14898', NULL, NULL, NULL),
+(4, 'Dr. Jaycee Thiel V', 'dell97@little.com', '$2y$10$1NG/AYfh53ol0faMoH76R.IvtZ1O9epBlZirY9gi8Q5V7h0eTmleC', 'http://lorempixel.com/200/200/?14898', 'XpeqLl3cEjUewUkOtLWxZFdMCZ6p4GXHWsRBuEIPkH6XiHKNYOKOnV5mmFhU', NULL, NULL),
 (5, 'Cole Lehner', 'sylvester.volkman@zboncak.com', '$2y$10$bED9uxYjFfNUK2eReD97b.s.pZWtaTe2m1Ug2/EP.IcUwnEzIUhne', 'http://lorempixel.com/200/200/?80731', NULL, NULL, NULL),
 (6, 'Marcelle Mertz', 'johns.adolf@hotmail.com', '$2y$10$aUZe8WbdDmdLT4toU7BBVOpeNpzglfldBVbxWa.e3fNQeWdW40dqu', 'http://lorempixel.com/200/200/?36048', NULL, NULL, NULL),
 (7, 'Novella Lakin', 'georgette.rosenbaum@barrows.biz', '$2y$10$TTma85sDc7tslxPdXjn7C.7vuuIw6pDjQqIKNAENGS7HZfUSmr0gK', 'http://lorempixel.com/200/200/?70796', NULL, NULL, NULL),
@@ -126,8 +160,8 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `avatar`, `remember_toke
 (18, 'Norberto Cassin', 'zbergnaum@hauck.com', '$2y$10$Iijb4Nr351Gir.Rg4aE2SeJqJwXx/GGerDrlyIwgvb0ljAUdnbvC2', 'http://lorempixel.com/200/200/?23523', NULL, NULL, NULL),
 (19, 'Dr. Elmer Koch MD', 'zkunde@yahoo.com', '$2y$10$WgsiPSqTHbkrQ042jmlH2e./Xm7ezd/pXr6vL4J1VXGI1YLEgIji6', 'http://lorempixel.com/200/200/?71526', NULL, NULL, NULL),
 (20, 'Domenic Glover', 'grant32@aufderhar.biz', '$2y$10$C8Ln.nv6Rj4NU6p83q3C8OYfRa5/ms6c4L8FMHBDmLqmjZF3ucjyC', 'http://lorempixel.com/200/200/?94704', NULL, NULL, NULL),
-(21, 'juliecabs', 'julie@gmail.com', '$2y$10$3QLnfEHVXuThQtphtutgDu7Ts0VZnZFJ6lQ1BLiDsHJ3Spd9Tfme6', 'alone.jpg', 'Q74r5oRxRZZa9B4BnE89CVBuYbS82dm8leJjPOGAgSAX4vqt9jaBRVbOBrJ2', '2017-07-19 17:33:46', '2017-07-19 17:33:46'),
-(22, 'jcab', 'jcab@email.com', '$2y$10$lRO.g6tMpOrJUFqHvOxn8uYUoBAXwk2wmNy9MK3fHxgTMnR0JCgm.', 'bg3.jpeg', 'N2o7BvQmNIvvd4DcEF4XFstsZnYRVQ6fsuMbCctHgteEX9cnHJyflKekfPyD', '2017-07-19 17:35:55', '2017-07-19 17:35:55');
+(21, 'juliecabs', 'julie@gmail.com', '$2y$10$3QLnfEHVXuThQtphtutgDu7Ts0VZnZFJ6lQ1BLiDsHJ3Spd9Tfme6', 'alone.jpg', 'KDSVKvn5oSO5uMsHlkypaxDd3eb9h0i81vQq5JE5CWJFMBvFYk54Sn72kGZ4', '2017-07-19 17:33:46', '2017-07-19 17:33:46'),
+(22, 'jcab', 'jcab@email.com', '$2y$10$lRO.g6tMpOrJUFqHvOxn8uYUoBAXwk2wmNy9MK3fHxgTMnR0JCgm.', 'bg3.jpeg', '8WlZAege0Mgsczof5mddCeFHLGN3YsCmUaaOOMX3er655CJ7YKVS0j7lEzj4', '2017-07-19 17:35:55', '2017-07-19 17:35:55');
 
 --
 -- Indexes for dumped tables
@@ -152,6 +186,12 @@ ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
+-- Indexes for table `posts`
+--
+ALTER TABLE `posts`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -166,12 +206,17 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `friend_requests`
 --
 ALTER TABLE `friend_requests`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `posts`
+--
+ALTER TABLE `posts`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `users`
 --
