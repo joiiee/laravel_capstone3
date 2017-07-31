@@ -94,7 +94,7 @@
 							@endif
 
 
-							<form method="POST" action='{{url("cancel_request/$list->id")}}'>
+							<form method="POST" action='{{url("/users/cancel_request/$list->id")}}'>
 								{{csrf_field()}}
 									<div class="modal fade" id="cancelreq{{$list->id}}" role="dialog">
 										<div class="modal-dialog">
@@ -136,7 +136,7 @@
 			<div class="img-thumbnail">
 				@foreach($friends as $f)
 					<div class="flist img-thumbnail">
-						<img class="img-responsive" src="{{$f->avatar}}">
+						<img class="img-responsive" src="{{$f->avatar}}" style="width: 150px; height: 150px;">
 						<p>Name: {{$f->name}}</p>
 					</div>
 				@endforeach

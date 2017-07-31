@@ -58,19 +58,56 @@ class UserController extends Controller
         $new_post->where=$request->wherepost;
         $new_post->when=$request->whenpost;
         $new_post->caption=$request->caption;
-        $new_post->imagepost=$request->imgpost;
+        // $new_post->imagepost=$request->imgpost;
+        if (!empty($request->postimage)){
+            $image=$request->imgpost;
+            $filenames = time().'.'. $image->getClientOriginalExtension();
+            // $path=public_path('imageUploads/'.$filename);
+            // $image= Image::make($image->getRealPath())->resize(200,200)->save($path);
+            $image->move('imageUploads',$filenames);
+            $new_post->imagepost= 'imageUploads/'.$filenames;
+        }
         $new_post->save();
 
         return redirect('/users/profile');
     }
 
     function showPosts(){
-        $posts = Post::all();
+        $posts = Post::latest()->get();
         $friends = Auth::user()->friends();
         $connections = Auth::user()->myRequests->merge(Auth::user()->theirRequests);
         $users = User::all();
 
         return view('/pages/profile', compact('posts','friends','connections','users'));
     }
+
+    function editProfile(Request $request) {
+        $this->validate($request,[
+            'profname'=>'required',
+            'profemail'=>'required',
+            'profpic'=>'image|nullable|max:1999'
+        ]);
+
+        $edit_prof = Auth::user();
+        $edit_prof->name=$request->profname;
+        $edit_prof->email=$request->profemail;
+        
+        if (empty($request->profpic)) {
+            $edit_prof->avatar=Auth::user()->avatar;
+        } else {
+            $myimage=$request->profpic;
+            $filenames = time().'.'. $myimage->getClientOriginalExtension();
+            $myimage->move('user',$filenames);
+            $edit_prof->avatar= 'user/'.$filenames;
+        }
+        
+        $edit_prof->save();
+
+        return back();
+        // return redirect('/users/profile');
+    }
+
+    // }
+
 
 }

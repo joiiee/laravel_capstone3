@@ -57,7 +57,7 @@ Route::post('/users/cancel_request/{id}',function($id){
 
 // Route::get('/users/profile', 'UserController@showProfile');
 
-Route::post('/users/profile','UserController@saveNewPost');
+Route::post('/users/profile/newPost','UserController@saveNewPost');
 
 Route::get('/users/profile','UserController@showPosts');
 
@@ -65,6 +65,25 @@ Route::post('like', 'LikeController@addLike');
 
 Route::post('unlike', 'LikeController@deleteLike');
 
+Route::post('/users/profile','UserController@editProfile');
+
+Route::post('/users/{post}/comments','CommentsController@store');
+
+Route::post('/edit_post/{id}','PostController@editPost');
+
+Route::post('/delete_post/{id}','PostController@deletePost');
+
+
+
+// Route::get('/users/register','RegistrationController@create');
+
+// Route::post('/users/register','RegistrationController@store');
+
+
+
+// Route::get('/login','SessionsController@create');
+
+// Route::get('/logout','SessionsController@destroy')
 
 
 
