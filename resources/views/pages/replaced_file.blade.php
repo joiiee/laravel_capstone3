@@ -175,3 +175,68 @@
 		</div>
 	</div>
 
+{{--- - - - - - UserController (editProfile method) - - - - - - - --}}
+
+ function editProfile(Request $request) {
+        $this->validate($request,[
+            'profname'=>'required',
+            'profemail'=>'required',
+            'profpic'=>'image|nullable|max:1999'
+        ]);
+
+        //Handle File Upload
+        if ($request->hasFile('profpic')) {
+            //Get filename with the extension
+            $filenameWithExt = $request->file('profpic')->getClientOriginalName();
+            //Get just filename
+            $filename=pathinfo($filenameWithExt, PATHINFO_FILENAME);
+
+            //Get just extension
+            $extension=$request->file('profpic')->getClientOriginalExtension();
+            //Filename to store
+            $fileNameToStore=$filename.'_'.time().'.'.$extension;
+            //Upload the image
+            $path=$request->file('profpic')->storeAs('public/user',$fileNameToStore);
+        } 
+
+        //Update user
+        $edit_profile = Auth::user();
+        $edit_profile->name=$request->input('profname');
+        $edit_profile->email=$request->input('profemail');
+        
+        if ($request->hasFile('profpic')) {
+            $edit_profile->avatar=$fileNameToStore;
+        }
+
+        {{-- else {
+            $fileNameToStore='noimage.jpg';
+        } --}}
+
+        // $edit_profile->avatar=$fileNameToStore;
+        	// $image=$request->imgpost;
+            // $filename = time().'.'. $image->getClientOriginalExtension();
+
+            // $path=public_path('imageUploads/'.$filename);
+            // $image= Image::make($image->getRealPath())->resize(200,200)->save($path);
+
+            // $image->move('imageUploads',$filename);
+            // $new_post->imagepost= 'imageUploads/'.$filename;
+
+        $edit_profile->save();
+
+        return redirect('/users/profile')->with('success','Profile Updated');
+    }
+
+
+    {{-- web.php --}}
+// Route::post('/users/profile/{id}', function($id){
+// 	$lists = User::find($id);
+// 	Auth::user()->editProfile($id);
+// 	return back();
+// }
+
+Route::get('/profile', function(){
+	return view('users/profile')
+}
+
+Route::post('/users/profile','UserController@editProfile');

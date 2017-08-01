@@ -10,22 +10,33 @@
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<div class="col-md-6"><strong><h3>Friend List</h3></strong></div><br>
-			<div class="input-group search-bar col-md-6">
-				<span class="input-group-btn">
-					<input type="text" class="form-control" name="search_friend" placeholder="Search a friend">
+				{{-- <div class="input-group search-bar col-md-6">
+					<span class="input-group-btn">
+						<input type="text" class="form-control" name="search_friend" placeholder="Search a friend">
 
-				</span>
+					</span>
 
-				<span class="input-group-btn">
-					<div class="input-group">
-					{{-- <button type="button" name="search_btn"><i class="glyphicon glyphicon-search" aria-hidden="true"></i>search</button> --}}
+					<span class="input-group-btn">
+						<div class="input-group"> --}}
+						{{-- <button type="button" name="search_btn"><i class="glyphicon glyphicon-search" aria-hidden="true"></i>search</button> --}}
 
-					<input type="submit" class="form-control" name="search-bk-btn" value="search">
-					</div>
-				</span>
-			</div>
+						{{-- <input type="submit" class="form-control" name="search-bk-btn" value="search">
+						</div>
+					</span>
+				</div> --}}
+				<div class="input-group search-bar col-md-6">
+					<form class="navbar-form navbar-left" method="GET" action="{{url("/search")}}">
+					  <div class="input-group">
+					    <input type="text" class="form-control" name="search" placeholder="Search">
+					    <div class="input-group-btn">
+					      <button class="btn btn-default" type="submit">
+					        <i class="glyphicon glyphicon-search"></i>
+					      </button>
+					    </div>
+					  </div>
+					</form>
+				</div>
 
-			
 			</div>
 		</div>
 		<br>
@@ -65,8 +76,8 @@
 				@foreach($lists as $list)
 					@if(Auth::user()->id != $list->id)	
 					<div class="flist col-md-3 col-sm-3 col-xs-6">
-						<div>
-							<img class="img-responsive" src="{{ $list->avatar }}">
+						<div >
+							<img src="{{ $list->avatar }}" style="width: 150px; height: 150px;">
 							<br>
 							<button type="button" class="btn btn-default"><a href='{{ url("/users/profile/$list->id") }}'></a>{{ $list->name }}
 							</button>
@@ -79,7 +90,7 @@
 							</form>		
 							@elseif(Auth::user()->id != $list->id && $connections->contains($list->id) == $friends->contains($list->id))
 
-								<button type="button" class="btn btn-success">Friends</button>
+								<button type="button" class="btn btn-success" data-toggle="modal" data-target="#unfriend{{$list->id}}"><a href='{{url("/users/unfriend/$list->id")}}'></a>Friends</button>
 
 							@elseif(Auth::user()->id != $list->id && $pend_req->contains($list->id))
 
@@ -94,7 +105,7 @@
 							@endif
 
 
-							<form method="POST" action='{{url("cancel_request/$list->id")}}'>
+							<form method="POST" action='{{url("/users/cancel_request/$list->id")}}'>
 								{{csrf_field()}}
 									<div class="modal fade" id="cancelreq{{$list->id}}" role="dialog">
 										<div class="modal-dialog">
@@ -120,6 +131,31 @@
 									</div>
 								</form>
 
+							<form method="POST" action='{{url("/users/unfriend/$list->id")}}'>
+								{{csrf_field()}}
+									<div class="modal fade" id="unfriend{{$list->id}}" role="dialog">
+										<div class="modal-dialog">
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal">&times;</button>
+													<h4 class="modal-title">Unfriend</h4>
+												</div>
+												<div class="modal-body">
+													<div class="img-thumbnail">
+														<div>
+															<img class="img-responsive" src="{{$list["avatar"]}}">
+															<p>Name:{{$list["name"]}}</p>
+															<button class="btn btn-primary">Unfriend</button>
+														</div>
+													</div>
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</form>
 						</div>
 						
 							
@@ -136,7 +172,7 @@
 			<div class="img-thumbnail">
 				@foreach($friends as $f)
 					<div class="flist img-thumbnail">
-						<img class="img-responsive" src="{{$f->avatar}}">
+						<img class="img-responsive" src="{{$f->avatar}}" style="width: 150px; height: 150px;">
 						<p>Name: {{$f->name}}</p>
 					</div>
 				@endforeach
