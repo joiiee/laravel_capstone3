@@ -111,9 +111,12 @@
 											</div>
 											<br>
 											<div class="input-group">
+<<<<<<< HEAD
 												{{-- <label for="imagepost" id="file-upload"><i class="fa fa-image"></i>Upload Image</label>
 												<input type="file" id="imagepost" name="imgpost" accept="image/*"> --}}
 											
+=======
+>>>>>>> 17669a2ebdec0d0e6c9d6822a677aa4fc0c05aff
 												Insert Image: <input type="file" name="imgpost" accept="image/*">
 											</div>
 
@@ -158,10 +161,16 @@
 						    @endif
 						    <br>
 						    @if(!Auth::user()->likes()->where('post_id',$post->id)->first())
+<<<<<<< HEAD
 						    <button id="like{{$post->id}}" name="like" onclick="like('{{$post->id}}');"><span class="fa fa-thumbs-o-up">like </span></button><span id='likeCount{{$post->id}}'>( {{count($post->likes)}} )</span>
 						    @else
 							<button id="like{{$post->id}}" name="unlike" onclick="like('{{$post->id}}');"><span class="fa fa-thumbs-o-down" aria-hidden="true">unlike </span></button>
 							<span id='likeCount{{$post->id}}'>( {{count($post->likes)}} )</span>
+=======
+						    <button id="like{{$post->id}}" name="like" onclick="like('{{$post->id}}');"><span class="fa fa-thumbs-o-up">like</span></button>
+						    @else
+							<button id="like{{$post->id}}" name="unlike" onclick="like('{{$post->id}}');"><span class="fa fa-thumbs-o-down" aria-hidden="true">unlike</span></button>
+>>>>>>> 17669a2ebdec0d0e6c9d6822a677aa4fc0c05aff
 						    @endif
 
 						    <hr>
@@ -215,9 +224,15 @@
 							  	<ul class="dropdown-menu dropdown-menu-right" >
 								    <li><a type="button" data-toggle="modal" data-target="#editpost{{$post->id}}">Edit post</a></li>
 								    <li><a type="button" data-toggle="modal" data-target="#deletepost{{$post->id}}">Delete post</a>
+<<<<<<< HEAD
 								   {{--  <li role="separator" class="divider"></li>
 								    <li><a href="#">Mark as Drawing</a></li>
 								    <li><a href="#">Mark as Colored</a></li> --}}
+=======
+								    <li role="separator" class="divider"></li>
+								    <li><a href="#">Mark as Drawing</a></li>
+								    <li><a href="#">Mark as Colored</a></li>
+>>>>>>> 17669a2ebdec0d0e6c9d6822a677aa4fc0c05aff
 								</ul>
 						  	</div>
 						</div>
@@ -433,6 +448,7 @@
 
 	}
 
+<<<<<<< HEAD
 	// function countLikes(){
 	// 	$.get('/countlikes',
 	// 	{
@@ -443,6 +459,8 @@
 	// 		}
 	// }
 
+=======
+>>>>>>> 17669a2ebdec0d0e6c9d6822a677aa4fc0c05aff
 	function addComment(id){
 		var token = $('#token').val();
 		var body = $('#body'+id).val();

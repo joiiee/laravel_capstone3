@@ -81,6 +81,7 @@ class UserController extends Controller
         return view('/pages/profile', compact('posts','friends','connections','users'));
     }
 
+<<<<<<< HEAD
     function showAllPosts(){
         $posts = Post::latest()->get();
         $friends = Auth::user()->friends();
@@ -90,6 +91,8 @@ class UserController extends Controller
         return view('/pages/home', compact('posts','friends','connections','users'));
     }
 
+=======
+>>>>>>> 17669a2ebdec0d0e6c9d6822a677aa4fc0c05aff
     function editProfile(Request $request) {
         $this->validate($request,[
             'profname'=>'required',

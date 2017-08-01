@@ -58,10 +58,13 @@ class User extends Authenticatable
     }
 
     function cancelRequest($id){
+<<<<<<< HEAD
         $this->myRequests()->detach($id);
     }
 
     function unFriend($id){
+=======
+>>>>>>> 17669a2ebdec0d0e6c9d6822a677aa4fc0c05aff
         $this->myRequests()->detach($id);
         $this->theirRequests()->detach($id);
     }
