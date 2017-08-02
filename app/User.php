@@ -57,17 +57,25 @@ class User extends Authenticatable
         $this->theirRequests()->detach($id);
     }
 
-    function posts(){
-        return $this->hasMany('App\Post');
-    }
-
     function cancelRequest($id){
         $this->myRequests()->detach($id);
+    }
+
+    function unFriend($id){
+        $this->myRequests()->detach($id);
+        $this->theirRequests()->detach($id);
     }
 
     function likes(){
         return $this->hasMany('App\Like');
     }
 
+    public function comments(){
+        return $this->hasMany(Comment::class);
+    }
+
+    public function posts() {
+        return $this->hasMany(Post::class);
+    }
 
 }

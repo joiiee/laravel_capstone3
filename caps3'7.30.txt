@@ -1,0 +1,143 @@
+
+yejojensha@a-PC MINGW64 ~/Desktop/FOLDERS/jo files/.Tuitt Bootcamp files/Laravel/friendReq_3 (master)
+$ php artisan make:controller CommentsController
+Controller created successfully.
+
+yejojensha@a-PC MINGW64 ~/Desktop/FOLDERS/jo files/.Tuitt Bootcamp files/Laravel/friendReq_3 (master)
+$ php artisan make:model Comment -m
+Model created successfully.
+Created Migration: 2017_07_29_140515_create_comments_table
+
+yejojensha@a-PC MINGW64 ~/Desktop/FOLDERS/jo files/.Tuitt Bootcamp files/Laravel/friendReq_3 (master)
+$ php artisan migrate
+Migrating: 2017_07_29_140515_create_comments_table
+Migrated:  2017_07_29_140515_create_comments_table
+
+yejojensha@a-PC MINGW64 ~/Desktop/FOLDERS/jo files/.Tuitt Bootcamp files/Laravel/friendReq_3 (master)
+$ php artisan tinker
+Psy Shell v0.8.9 (PHP 5.6.30 G현 cli) by Justin Hileman
+>>> $post = App\Post::find(9);
+=> App\Post {#709
+     id: 9,
+     user_id: 1,
+     what: "dfasfdsafdsf",
+     where: "asdfasdfsaf",
+     when: "2017-07-28",
+     caption: "adsfasfsda",
+     created_at: "2017-07-28 07:14:57",
+     updated_at: "2017-07-28 07:14:57",
+     imagepost: "imageUploads/1501226097.jpg",
+   }
+>>> $post->comments
+=> Illuminate\Database\Eloquent\Collection {#710
+     all: [
+       App\Comment {#101
+         id: 1,
+         post_id: 9,
+         user_id: 21,
+         body: "This is a great post!",
+         created_at: "2017-07-28 00:00:00",
+         updated_at: "2017-07-28 00:00:00",
+       },
+     ],
+   }
+>>> $post = App\Post::find(2);
+=> App\Post {#712
+     id: 2,
+     user_id: 21,
+     what: "aq",
+     where: "aq",
+     when: "2017-07-26",
+     caption: "aq",
+     created_at: "2017-07-26 06:50:45",
+     updated_at: "2017-07-26 06:50:45",
+     imagepost: "",
+   }
+>>> $post->comments
+=> Illuminate\Database\Eloquent\Collection {#698
+     all: [],
+   }
+>>> $c = App\Comment::first();
+=> App\Comment {#706
+     id: 1,
+     post_id: 9,
+     user_id: 21,
+     body: "This is a great post!",
+     created_at: "2017-07-28 00:00:00",
+     updated_at: "2017-07-28 00:00:00",
+   }
+>>> $c->post
+=> null
+>>> $c->post;
+=> null
+>>>
+yejojensha@a-PC MINGW64 ~/Desktop/FOLDERS/jo files/.Tuitt Bootcamp files/Laravel/friendReq_3 (master)
+$ php artisan tinker
+Psy Shell v0.8.9 (PHP 5.6.30 G현 cli) by Justin Hileman
+>>> $c = App\Comment::first();
+=> App\Comment {#707
+     id: 1,
+     post_id: 9,
+     user_id: 21,
+     body: "This is a great post!",
+     created_at: "2017-07-28 00:00:00",
+     updated_at: "2017-07-28 00:00:00",
+   }
+>>> $c->post;
+=> App\Post {#705
+     id: 9,
+     user_id: 1,
+     what: "dfasfdsafdsf",
+     where: "asdfasdfsaf",
+     when: "2017-07-28",
+     caption: "adsfasfsda",
+     created_at: "2017-07-28 07:14:57",
+     updated_at: "2017-07-28 07:14:57",
+     imagepost: "imageUploads/1501226097.jpg",
+   }
+>>>
+yejojensha@a-PC MINGW64 ~/Desktop/FOLDERS/jo files/.Tuitt Bootcamp files/Laravel/friendReq_3 (master)
+$ php artisan tinker
+Psy Shell v0.8.9 (PHP 5.6.30 G현 cli) by Justin Hileman
+>>> $c=App\Comment::first();
+=> App\Comment {#707
+     id: 1,
+     post_id: 9,
+     user_id: 21,
+     body: "This is a great post!",
+     created_at: "2017-07-28 00:00:00",
+     updated_at: "2017-07-28 00:00:00",
+   }
+>>> $c->user;
+Illuminate\Database\QueryException with message 'SQLSTATE[42S22]: Column not fou
+nd: 1054 Unknown column 'users.comment_id' in 'where clause' (SQL: select * from
+ `users` where `users`.`comment_id` = 1 and `users`.`comment_id` is not null)'
+>>> $c->user;
+Illuminate\Database\QueryException with message 'SQLSTATE[42S22]: Column not fou
+nd: 1054 Unknown column 'users.comment_id' in 'where clause' (SQL: select * from
+ `users` where `users`.`comment_id` = 1 and `users`.`comment_id` is not null)'
+>>>
+yejojensha@a-PC MINGW64 ~/Desktop/FOLDERS/jo files/.Tuitt Bootcamp files/Laravel/friendReq_3 (master)
+$ php artisan tinker
+Psy Shell v0.8.9 (PHP 5.6.30 G현 cli) by Justin Hileman
+>>> $c=App\Comment::first();
+=> App\Comment {#707
+     id: 1,
+     post_id: 9,
+     user_id: 21,
+     body: "This is a great post!",
+     created_at: "2017-07-28 00:00:00",
+     updated_at: "2017-07-28 00:00:00",
+   }
+>>> $c->user;
+=> App\User {#705
+     id: 21,
+     name: "juliecabss",
+     email: "julie@gmail.com",
+     avatar: "user/1501323475.jpg",
+     created_at: "2017-07-20 01:33:46",
+     updated_at: "2017-07-29 10:17:55",
+   }
+>>>
+yejojensha@a-PC MINGW64 ~/Desktop/FOLDERS/jo files/.Tuitt Bootcamp files/Laravel/friendReq_3 (master)
+$

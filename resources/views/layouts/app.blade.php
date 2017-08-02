@@ -12,14 +12,23 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    {{-- <script src="js/bootstrap.min.js"></script> --}}
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>
+
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-inverse navbar-static-top">
+        <nav class="navbar navbar-inverse navbar-static-top navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
 
@@ -43,6 +52,7 @@
                     <ul class="nav navbar-nav">
                         <li><a href="/users">Users</a></li>
                         <li><a href="/users/profile">Profile</a></li>
+                        <li><a href="/homes">Home</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -76,11 +86,11 @@
                 </div>
             </div>
         </nav>
-
+        <div class="container-fluid mycontent">
         @yield('content')
+        </div>
     </div>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+   
 </body>
 </html>
