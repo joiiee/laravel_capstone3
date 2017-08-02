@@ -15,6 +15,7 @@
 
 
 						  <div class="media-body">
+<<<<<<< HEAD
 
 						  	<div class="media-heading">
 						  		<h4>{{$post->user->name}}</h4>
@@ -39,6 +40,9 @@
 						    </div>
 
 						    {{-- <h4 class="media-heading">{{$post->user->name}}</h4>
+=======
+						    <h4 class="media-heading">{{$post->user->name}}</h4>
+>>>>>>> efca031c3b815c21bdf011c91544b72658072863
 						    <p><em>What: </em> {{$post->what}}</p>
 						    <p><em>Where: </em>{{$post->where}}</p>
 						    <p><em>When: </em>{{$post->when}}</p>
@@ -46,6 +50,7 @@
 						    <p><em>Posted  {{$post->created_at->diffForHumans()}}</em></p>
 						    @if(!empty($post->imagepost))
 						    	<img src="{{asset($post->imagepost)}}" style="width: 100px; height: 100px;">
+<<<<<<< HEAD
 						    @endif --}}
 						    <hr>
 						    <div>
@@ -98,6 +103,56 @@
 						</div>
 					</div>
 					</div>
+=======
+						    @endif
+						    <br>
+						    @if(!Auth::user()->likes()->where('post_id',$post->id)->first())
+						    <button id="like{{$post->id}}" name="like" onclick="like('{{$post->id}}');"><span class="fa fa-thumbs-o-up">like</span></button>
+						    @else
+							<button id="like{{$post->id}}" name="unlike" onclick="like('{{$post->id}}');"><span class="fa fa-thumbs-o-down" aria-hidden="true">unlike</span></button>
+						    @endif
+
+						    <hr>
+						   
+						    {{-- Add a comment --}}
+						    <div class="card">
+						    	<div class="card-block">
+						    		<form method="POST" action='{{url("/homes/$post->id/comments")}}'>
+						    		{{ csrf_field() }}
+						    		{{-- {{method_field('PATCH')}} --}}
+						    			<div class="form-group">
+						    				<textarea name="body" id="body{{$post->id}}"placeholder="Your comment here..." class="form-control" required>
+						    					
+						    				</textarea>
+						    			</div>
+						    			<div class="form-group">
+						    				<button type="button" id="{{$post->id}}" class="btn btn-primary" onclick="addComment(this.id)">Add Comment</button>
+						    			</div>
+						    		</form>
+						    		{{-- @include('layouts/errors') --}}
+						    	</div>
+						    </div>
+						    {{-- <a href="#">Comment</a> --}}
+						  	
+						  	 <div class="comments">
+						    	<ul class="list-group" id="showComments{{$post->id}}">
+						    	@foreach($post->comments as $comment)
+						    		<li class="list-group-item">
+						    			<strong>
+						    				{{$comment->created_at->diffForHumans()}}: &nbsp;
+						    			</strong>
+						    			{{$comment->body}}
+						    			by:&nbsp;{{$comment->user->name}}
+						    		</li>
+						    	@endforeach
+						    	</ul>
+						    </div>
+						    <hr>
+
+						  </div>
+						</div>
+					</div>
+>>>>>>> efca031c3b815c21bdf011c91544b72658072863
 					@endif
 				@endforeach
 			</div>
@@ -112,6 +167,7 @@
 <script type="text/javascript">
 	function like(id){
 		
+<<<<<<< HEAD
 		// var token = $('#token').val();
 
 		// if($('#like'+id).attr('name',) == 'like'){
@@ -219,6 +275,42 @@
 		$('#commentdiv'+id).toggle();
 	}
 
+=======
+		var token = $('#token').val();
+
+		if($('#like'+id).attr('name',) == 'like'){
+			$.post('/like',{
+				_token : token,
+				post_id : id,
+			},function(data){
+				$('#like'+id).html('<span class="fa fa-thumbs-o-down" aria-hidden="true">unlike</span>');
+				$('#like'+id).attr('name','unlike');		
+			});
+		} else {
+			$.post('/unlike',{
+				_token : token,
+				post_id : id,
+			},function(data){
+				$('#like'+id).html('<span class="fa fa-thumbs-o-up" aria-hidden="true">like</span>');
+				$('#like'+id).attr('name','like');		
+			});
+		}
+		
+
+	}
+
+	function addComment(id){
+		var token = $('#token').val();
+		var body = $('#body'+id).val();
+		$.post('/users/'+id+'/comments',{
+			_token : token,
+			body : body,
+		}, function(data){
+			$('#showComments'+id).html(data);
+			$('#body'+id).val('');
+		});
+	}
+>>>>>>> efca031c3b815c21bdf011c91544b72658072863
 </script>
 
 

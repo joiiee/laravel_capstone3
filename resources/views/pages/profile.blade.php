@@ -111,9 +111,18 @@
 											</div>
 											<br>
 											<div class="input-group">
+<<<<<<< HEAD
 												{{-- <label for="imagepost" id="file-upload"><i class="fa fa-image"></i>Upload Image</label>
 												<input type="file" id="imagepost" name="imgpost" accept="image/*"> --}}
 											
+=======
+<<<<<<< HEAD
+												{{-- <label for="imagepost" id="file-upload"><i class="fa fa-image"></i>Upload Image</label>
+												<input type="file" id="imagepost" name="imgpost" accept="image/*"> --}}
+											
+=======
+>>>>>>> 17669a2ebdec0d0e6c9d6822a677aa4fc0c05aff
+>>>>>>> efca031c3b815c21bdf011c91544b72658072863
 												Insert Image: <input type="file" name="imgpost" accept="image/*">
 											</div>
 
@@ -142,11 +151,16 @@
 						
 						<div class="col-md-10 col-sm-10 col-xs-10">
 						  <div class="media-left">
+<<<<<<< HEAD
 						    <img src="{{asset($post->user->avatar)}}" class="media-object img-circle" style="width:80px; height: 80px;">
+=======
+						    <img src="{{asset($post->user->avatar)}}" class="media-object img-circle" style="width:100px; height: 100px;">
+>>>>>>> efca031c3b815c21bdf011c91544b72658072863
 						  </div>
 
 
 						  <div class="media-body">
+<<<<<<< HEAD
 						  	<div class="media-heading">
 						  		<h4>{{$post->user->name}}</h4>
 						  		<h6><em>Posted  {{$post->created_at->diffForHumans()}}</em></h6>
@@ -217,6 +231,67 @@
 								    <hr>
 								</div>
 							</div>
+=======
+						    <h4 class="media-heading">{{$post->user->name}}</h4>
+						    <p><em>What: </em> {{$post->what}}</p>
+						    <p><em>Where: </em>{{$post->where}}</p>
+						    <p><em>When: </em>{{$post->when}}</p>
+						    <p><em>Caption: </em>{{$post->caption}}</p>
+						    <p><em>Posted  {{$post->created_at->diffForHumans()}}</em></p>
+						    @if(!empty($post->imagepost))
+						    	<img src="{{asset($post->imagepost)}}" style="width: 100px; height: 100px;">
+						    @endif
+						    <br>
+						    @if(!Auth::user()->likes()->where('post_id',$post->id)->first())
+<<<<<<< HEAD
+						    <button id="like{{$post->id}}" name="like" onclick="like('{{$post->id}}');"><span class="fa fa-thumbs-o-up">like </span></button><span id='likeCount{{$post->id}}'>( {{count($post->likes)}} )</span>
+						    @else
+							<button id="like{{$post->id}}" name="unlike" onclick="like('{{$post->id}}');"><span class="fa fa-thumbs-o-down" aria-hidden="true">unlike </span></button>
+							<span id='likeCount{{$post->id}}'>( {{count($post->likes)}} )</span>
+=======
+						    <button id="like{{$post->id}}" name="like" onclick="like('{{$post->id}}');"><span class="fa fa-thumbs-o-up">like</span></button>
+						    @else
+							<button id="like{{$post->id}}" name="unlike" onclick="like('{{$post->id}}');"><span class="fa fa-thumbs-o-down" aria-hidden="true">unlike</span></button>
+>>>>>>> 17669a2ebdec0d0e6c9d6822a677aa4fc0c05aff
+						    @endif
+
+						    <hr>
+						   
+						    {{-- Add a comment --}}
+						    <div class="card">
+						    	<div class="card-block">
+						    		<form method="POST" action='{{url("/users/$post->id/comments")}}'>
+						    		{{ csrf_field() }}
+						    		{{-- {{method_field('PATCH')}} --}}
+						    			<div class="form-group">
+						    				<textarea name="body" id="body{{$post->id}}"placeholder="Your comment here..." class="form-control" required>
+						    					
+						    				</textarea>
+						    			</div>
+						    			<div class="form-group">
+						    				<button type="button" id="{{$post->id}}" class="btn btn-primary" onclick="addComment(this.id)">Add Comment</button>
+						    			</div>
+						    		</form>
+						    		{{-- @include('layouts/errors') --}}
+						    	</div>
+						    </div>
+						    {{-- <a href="#">Comment</a> --}}
+						  	
+						  	 <div class="comments">
+						    	<ul class="list-group" id="showComments{{$post->id}}">
+						    	@foreach($post->comments as $comment)
+						    		<li class="list-group-item">
+						    			<strong>
+						    				{{$comment->created_at->diffForHumans()}}: &nbsp;
+						    			</strong>
+						    			{{$comment->body}}
+						    			by:&nbsp;{{$comment->user->name}}
+						    		</li>
+						    	@endforeach
+						    	</ul>
+						    </div>
+						    <hr>
+>>>>>>> efca031c3b815c21bdf011c91544b72658072863
 
 						  </div>
 						</div>
@@ -232,9 +307,21 @@
 							  	<ul class="dropdown-menu dropdown-menu-right" >
 								    <li><a type="button" data-toggle="modal" data-target="#editpost{{$post->id}}">Edit post</a></li>
 								    <li><a type="button" data-toggle="modal" data-target="#deletepost{{$post->id}}">Delete post</a>
+<<<<<<< HEAD
 								   {{--  <li role="separator" class="divider"></li>
 								    <li><a href="#">Mark as Drawing</a></li>
 								    <li><a href="#">Mark as Colored</a></li> --}}
+=======
+<<<<<<< HEAD
+								   {{--  <li role="separator" class="divider"></li>
+								    <li><a href="#">Mark as Drawing</a></li>
+								    <li><a href="#">Mark as Colored</a></li> --}}
+=======
+								    <li role="separator" class="divider"></li>
+								    <li><a href="#">Mark as Drawing</a></li>
+								    <li><a href="#">Mark as Colored</a></li>
+>>>>>>> 17669a2ebdec0d0e6c9d6822a677aa4fc0c05aff
+>>>>>>> efca031c3b815c21bdf011c91544b72658072863
 								</ul>
 						  	</div>
 						</div>
@@ -280,8 +367,12 @@
 											<div class="form-group">
 												<label class="control-label col-sm-4" for="pcaption">Caption:</label>
 												<div class="col-sm-8">
+<<<<<<< HEAD
 													<textarea name="postcaption" id="pcaption" class="form-control">{{$post->caption}}</textarea>
 													{{-- <input type="text" id="pcaption" name="postcaption" value="{{$post->caption}}"> --}}
+=======
+													<input type="text" id="pcaption" name="postcaption" value="{{$post->caption}}">
+>>>>>>> efca031c3b815c21bdf011c91544b72658072863
 												</div>
 											</div>
 											<div class="form-group">
@@ -382,7 +473,7 @@
 			
 		</div>
 	</div>
-	<input type="hidden" id="token" value="{{csrf_token()}}">
+	{{-- <input type="hidden" id="token" value="{{csrf_token()}}"> --}}
 
 <script type="text/javascript">
 	function like(id){
@@ -447,6 +538,7 @@
 				console.log(error)
 			}
 		});
+<<<<<<< HEAD
 		}
 
 	}
@@ -515,6 +607,36 @@
 	
 
 
+=======
+		}
+
+	}
+
+<<<<<<< HEAD
+	// function countLikes(){
+	// 	$.get('/countlikes',
+	// 	{
+	// 		id: $('#likeCount'+id)
+	// 	}
+	// 		function(data){
+	// 			console.log(data);
+	// 		}
+	// }
+
+=======
+>>>>>>> 17669a2ebdec0d0e6c9d6822a677aa4fc0c05aff
+	function addComment(id){
+		var token = $('#token').val();
+		var body = $('#body'+id).val();
+		$.post('/users/'+id+'/comments',{
+			_token : token,
+			body : body,
+		}, function(data){
+			$('#showComments'+id).html(data);
+			$('#body'+id).val('');
+		});
+	}
+>>>>>>> efca031c3b815c21bdf011c91544b72658072863
 </script>
 
 @endsection

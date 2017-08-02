@@ -59,7 +59,11 @@ class UserController extends Controller
         $new_post->when=$request->whenpost;
         $new_post->caption=$request->caption;
         // $new_post->imagepost=$request->imgpost;
+<<<<<<< HEAD
         if (!empty($request->imgpost)){
+=======
+        if (!empty($request->postimage)){
+>>>>>>> efca031c3b815c21bdf011c91544b72658072863
             $image=$request->imgpost;
             $filenames = time().'.'. $image->getClientOriginalExtension();
             // $path=public_path('imageUploads/'.$filename);
@@ -81,6 +85,10 @@ class UserController extends Controller
         return view('/pages/profile', compact('posts','friends','connections','users'));
     }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> efca031c3b815c21bdf011c91544b72658072863
     function showAllPosts(){
         $posts = Post::latest()->get();
         $friends = Auth::user()->friends();
@@ -90,6 +98,11 @@ class UserController extends Controller
         return view('/pages/home', compact('posts','friends','connections','users'));
     }
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 17669a2ebdec0d0e6c9d6822a677aa4fc0c05aff
+>>>>>>> efca031c3b815c21bdf011c91544b72658072863
     function editProfile(Request $request) {
         $this->validate($request,[
             'profname'=>'required',

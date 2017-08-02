@@ -109,9 +109,36 @@ Route::get('search', function(Request $request){
 // Route::post('/users/register','RegistrationController@store');
 
 
+<<<<<<< HEAD
 
 // Route::get('/login','SessionsController@create');
 
+=======
+
+// Route::get('/login','SessionsController@create');
+
+<<<<<<< HEAD
+=======
+Route::post('/users/profile','UserController@editProfile');
+
+Route::post('/users/{post}/comments','CommentsController@store');
+
+Route::post('/edit_post/{id}','PostController@editPost');
+
+Route::post('/delete_post/{id}','PostController@deletePost');
+
+
+
+// Route::get('/users/register','RegistrationController@create');
+
+// Route::post('/users/register','RegistrationController@store');
+
+
+
+// Route::get('/login','SessionsController@create');
+
+>>>>>>> 17669a2ebdec0d0e6c9d6822a677aa4fc0c05aff
+>>>>>>> efca031c3b815c21bdf011c91544b72658072863
 // Route::get('/logout','SessionsController@destroy')
 
 
