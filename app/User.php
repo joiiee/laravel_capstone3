@@ -61,16 +61,22 @@ class User extends Authenticatable
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 >>>>>>> efca031c3b815c21bdf011c91544b72658072863
+>>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
         $this->myRequests()->detach($id);
     }
 
     function unFriend($id){
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
 =======
 >>>>>>> 17669a2ebdec0d0e6c9d6822a677aa4fc0c05aff
 >>>>>>> efca031c3b815c21bdf011c91544b72658072863
+>>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
         $this->myRequests()->detach($id);
         $this->theirRequests()->detach($id);
     }

@@ -1,3 +1,35 @@
+body {
+	/*background-color: #81CFE0;  */
+	background-image: linear-gradient(
+		rgba(0,0,0,0.4),
+		rgba(0,0,0,0.4)
+		),
+		url("/images/bg3.jpeg");
+	/*background: url("/images/bg3.jpeg");*/
+	background-attachment: fixed;
+	height: auto;
+	background-size: cover;
+	background-position: center center; 
+}
+
+.profleft {
+	padding: 15px;
+}
+
+.profleft img {
+	padding-bottom: 15px;
+}
+
+/*body {
+	background: transparent url('/images/bg3.jpeg') no-repeat center
+}*/
+
+.regdiv,
+.logindiv {
+	padding-top: 6%;
+	
+}
+
 .flist {
 	padding: 15px;
 	border: 1px solid black;
@@ -27,11 +59,30 @@
 /*#imagepost {
 	display: none;
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
 }*/
 
 .mycontent {
 	margin-top: 70px;
 }
+<<<<<<< HEAD
+
+.searchresult {
+	background-color: transparent; 
+	border: 1px solid transparent;
+}
+
+.searchdiv {
+	padding: 15px;
+	border: 1px solid black;
+	margin: 15px;
+	text-align: center;
+	justify-content: center;
+}
+=======
 =======
 }*/
 >>>>>>> efca031c3b815c21bdf011c91544b72658072863
+>>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980

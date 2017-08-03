@@ -18,7 +18,14 @@
 <<<<<<< HEAD
 
 						  	<div class="media-heading">
+						  		{{-- <h4>{{$post->user->name}}</h4> --}}
+						  		<h4><a  href='/users/profile/{{ $post->user->id }}'>{{$post->user->name}}</a></h4>
+=======
+<<<<<<< HEAD
+
+						  	<div class="media-heading">
 						  		<h4>{{$post->user->name}}</h4>
+>>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
 						  		<h6><em>Posted  {{$post->created_at->diffForHumans()}}</em></h6>
 						  	</div>
 						  	<div class="well" style="justify-content: center;">
@@ -40,9 +47,12 @@
 						    </div>
 
 						    {{-- <h4 class="media-heading">{{$post->user->name}}</h4>
+<<<<<<< HEAD
+=======
 =======
 						    <h4 class="media-heading">{{$post->user->name}}</h4>
 >>>>>>> efca031c3b815c21bdf011c91544b72658072863
+>>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
 						    <p><em>What: </em> {{$post->what}}</p>
 						    <p><em>Where: </em>{{$post->where}}</p>
 						    <p><em>When: </em>{{$post->when}}</p>
@@ -51,6 +61,9 @@
 						    @if(!empty($post->imagepost))
 						    	<img src="{{asset($post->imagepost)}}" style="width: 100px; height: 100px;">
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
 						    @endif --}}
 						    <hr>
 						    <div>
@@ -103,6 +116,8 @@
 						</div>
 					</div>
 					</div>
+<<<<<<< HEAD
+=======
 =======
 						    @endif
 						    <br>
@@ -153,6 +168,7 @@
 						</div>
 					</div>
 >>>>>>> efca031c3b815c21bdf011c91544b72658072863
+>>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
 					@endif
 				@endforeach
 			</div>
@@ -168,6 +184,9 @@
 	function like(id){
 		
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
 		// var token = $('#token').val();
 
 		// if($('#like'+id).attr('name',) == 'like'){
@@ -275,6 +294,8 @@
 		$('#commentdiv'+id).toggle();
 	}
 
+<<<<<<< HEAD
+=======
 =======
 		var token = $('#token').val();
 
@@ -311,6 +332,7 @@
 		});
 	}
 >>>>>>> efca031c3b815c21bdf011c91544b72658072863
+>>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
 </script>
 
 

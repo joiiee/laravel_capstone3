@@ -72,15 +72,18 @@
 </script>
 {{-- - - - -  - - - - - - - - - - - - - - - - - - - - - - - --}}
 		<div id="userlist" style="display: none">
-			<div class="container-fluid img-thumbnail">
+			<div class="container-fluid img-thumbnail searchresult">
 				@foreach($lists as $list)
 					@if(Auth::user()->id != $list->id)	
+<<<<<<< HEAD
+					<div class="flist img-thumbnail col-md-3 col-sm-3 col-xs-6">
+=======
 					<div class="flist col-md-3 col-sm-3 col-xs-6">
+>>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
 						<div >
 							<img src="{{ $list->avatar }}" style="width: 150px; height: 150px;">
 							<br>
-							<button type="button" class="btn btn-default"><a href='{{ url("/users/profile/$list->id") }}'></a>{{ $list->name }}
-							</button>
+							<a class="btn btn-default" href='{{ url("/users/profile/$list->id") }}'>{{ $list->name }}</a>
 							<br>
 						
 							@if(Auth::user()->id != $list->id && !$connections->contains($list->id))
@@ -169,9 +172,13 @@
 
 
 		<div id="friendlist" style="display: none">
-			<div class="img-thumbnail">
+			<div class="img-thumbnail searchresult">
 				@foreach($friends as $f)
+<<<<<<< HEAD
+					<div class="flist img-thumbnail col-md-3 col-sm-3 col-xs-6">
+=======
 					<div class="flist img-thumbnail">
+>>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
 						<img class="img-responsive" src="{{$f->avatar}}" style="width: 150px; height: 150px;">
 						<p>Name: {{$f->name}}</p>
 					</div>
@@ -180,22 +187,27 @@
 		</div>
 
 		<div id="pendinglist" style="display: none">
-			<div class="img-thumbnail">
+			<div class="img-thumbnail searchresult">
 				@foreach($pend_req as $pr)
-					<div class="flist img-thumbnail">
-						<img class="img-responsive" src="{{$pr->avatar}}">
-						<p>Name:  {{$pr->name}}</p>
-					</div>
-					<div class="btns">
-					<form method="POST" action='{{url("accept_request/$pr->id")}}'>
-					{{csrf_field()}}
-						<button class="btn btn-primary">Accept</button>
-					</form>
-
-					<form method="POST" action='{{url("decline_request/$pr->id")}}'>
-					{{csrf_field()}}
-						<button class="btn btn-danger">Decline</button>
-					</form>
+					{{-- <div class="row"> --}}
+						<div class="flist img-thumbnail {{-- col-md-3 col-sm-3 col-xs-6 --}}">
+							<img class="img-responsive" src="{{$pr->avatar}}" style="width: 150px; height: 150px;">
+							<p>Name:  {{$pr->name}}</p>
+						</div>
+					{{-- </div> --}}
+					<div class="btns {{-- row --}}">
+						{{-- <div class="col-md-offset-2 col-md-3">	 --}}
+							<form method="POST" action='{{url("accept_request/$pr->id")}}'>
+							{{csrf_field()}}
+								<button class="btn btn-primary">Accept</button>
+							</form>
+						{{-- </div>	 --}}
+						{{-- <div class="col-md-offset-1 col-md-3 "> --}}
+							<form method="POST" action='{{url("decline_request/$pr->id")}}'>
+							{{csrf_field()}}
+								<button class="btn btn-danger">Decline</button>
+							</form>
+						{{-- </div> --}}
 					</div>
 				@endforeach
 			</div>

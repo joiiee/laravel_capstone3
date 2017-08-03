@@ -3,11 +3,19 @@
 @section("content")
 	<div class="container-fluid">
 		<div class="row">
+<<<<<<< HEAD
+			<div class="col-md-3">
+				<div class="img-thumbnail profleft">
+					<img class="img-responsive" src="{{asset($user->avatar)}}">		
+					<p>Name: {{$user->name}}</p>
+					<p>Email: {{$user->email}}</p>
+=======
 			<div class="col-md-2">
 				<div class="img-thumbnail">
 					<img class="img-responsive" src="{{asset(Auth::user()->avatar)}}">		
 					<p>Name: {{Auth::user()->name}}</p>
 					<p>Email: {{Auth::user()->email}}</p>
+>>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
 					<p><a href='{{ url("/users")}}'>Friends ({{count($friends)}})</a></p>
 					<p><a type="button" data-toggle="modal" data-target="#editprof">Edit Profile</a></p>
 				</div>
@@ -31,19 +39,31 @@
 									<div class="form-group">
 										<label class="control-label col-sm-4" for="pname">Name:</label>
 										<div class="col-sm-8">
+<<<<<<< HEAD
+											<input type="text" id="pname" name="profname" value="{{$user->name}}">
+=======
 											<input type="text" id="pname" name="profname" value="{{Auth::user()->name}}">
+>>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
 										</div>
 									</div>
 									<div class="form-group">
 										<label class="control-label col-sm-4" for="pemail">Email:</label> 
 										<div class="col-sm-8">
+<<<<<<< HEAD
+											<input type="text" id="pemail" name="profemail" value="{{$user->email}}">
+=======
 											<input type="text" id="pemail" name="profemail" value="{{Auth::user()->email}}">
+>>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
 										</div>
 									</div>
 									<div class="form-group">
 										<label class="control-label col-sm-4" for="ppic">Profile Picture:</label>
 										<div class="col-sm-8">
+<<<<<<< HEAD
+											<input type="file" name="profpic" value="{{asset($user->avatar)}}" accept="image/*">
+=======
 											<input type="file" name="profpic" value="{{asset(Auth::user()->avatar)}}" accept="image/*">
+>>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
 										</div>
 									</div>
 									<div class="form-group">
@@ -63,7 +83,11 @@
 			</div>
 
 
+<<<<<<< HEAD
+			<div class="col-md-8">
+=======
 			<div class="col-md-7">
+>>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
 				<div class="container-fluid">
 					
 					{{-- add new post (modal) --}}
@@ -121,14 +145,20 @@
 												<input type="file" id="imagepost" name="imgpost" accept="image/*"> --}}
 											
 =======
+<<<<<<< HEAD
+												{{-- <label for="imagepost" id="file-upload"><i class="fa fa-image"></i>Upload Image</label>
+												<input type="file" id="imagepost" name="imgpost" accept="image/*"> --}}
+											
+=======
 >>>>>>> 17669a2ebdec0d0e6c9d6822a677aa4fc0c05aff
 >>>>>>> efca031c3b815c21bdf011c91544b72658072863
+>>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
 												Insert Image: <input type="file" name="imgpost" accept="image/*">
 											</div>
 
 											<br>
 											<div class="input-group">
-												<input type="submit" class="btn btn-primary" name="postnow" value="Post">
+												<input type="submit" class="btn btn-primary" name="postnow" value="Post">&nbsp;&nbsp;
 
 												<a href='{{url("/users/profile")}}'><input type="button" class="btn btn-danger" name="cancel" value="Cancel"></a>
 											</div>
@@ -146,7 +176,11 @@
 					<p>No posts found..</p>
 				@else --}}
 					@foreach($posts as $post)
+<<<<<<< HEAD
+					@if(($user->id) == ($post->user->id))
+=======
 					@if((Auth::user()->id) == ($post->user->id))
+>>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
 					<div class="media img-thumbnail">
 						
 						<div class="col-md-10 col-sm-10 col-xs-10">
@@ -154,17 +188,28 @@
 <<<<<<< HEAD
 						    <img src="{{asset($post->user->avatar)}}" class="media-object img-circle" style="width:80px; height: 80px;">
 =======
+<<<<<<< HEAD
+						    <img src="{{asset($post->user->avatar)}}" class="media-object img-circle" style="width:80px; height: 80px;">
+=======
 						    <img src="{{asset($post->user->avatar)}}" class="media-object img-circle" style="width:100px; height: 100px;">
 >>>>>>> efca031c3b815c21bdf011c91544b72658072863
+>>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
 						  </div>
 
 
 						  <div class="media-body">
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
 						  	<div class="media-heading">
 						  		<h4>{{$post->user->name}}</h4>
 						  		<h6><em>Posted  {{$post->created_at->diffForHumans()}}</em></h6>
 						  	</div>
+<<<<<<< HEAD
+						  	<hr>
+=======
+>>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
 						  	<div class="well" style="justify-content: center;">
 						  		<div style="text-align: center; padding: 10px;">
 							  		@if(!empty($post->imagepost))
@@ -195,7 +240,11 @@
 							    {{-- <hr> --}}
 							   
 							    {{-- Add a comment --}}
+<<<<<<< HEAD
+							    &nbsp;&nbsp;<button {{-- class="btn btn-default" --}} id="showComment{{$post->id}}" onclick="showComment({{$post->id}})">Show Comment</button>{{$post->comments->count()}}
+=======
 							    &nbsp;&nbsp;<button {{-- class="btn btn-default" --}} id="showComment{{$post->id}}" onclick="showComment({{$post->id}})">Show Comment</button>
+>>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
 							    <hr>
 							    <div id="commentdiv{{$post->id}}" style="display: none;">
 								    <div class="card" >
@@ -231,6 +280,8 @@
 								    <hr>
 								</div>
 							</div>
+<<<<<<< HEAD
+=======
 =======
 						    <h4 class="media-heading">{{$post->user->name}}</h4>
 						    <p><em>What: </em> {{$post->what}}</p>
@@ -292,6 +343,7 @@
 						    </div>
 						    <hr>
 >>>>>>> efca031c3b815c21bdf011c91544b72658072863
+>>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
 
 						  </div>
 						</div>
@@ -317,11 +369,17 @@
 								    <li><a href="#">Mark as Drawing</a></li>
 								    <li><a href="#">Mark as Colored</a></li> --}}
 =======
+<<<<<<< HEAD
+								   {{--  <li role="separator" class="divider"></li>
+								    <li><a href="#">Mark as Drawing</a></li>
+								    <li><a href="#">Mark as Colored</a></li> --}}
+=======
 								    <li role="separator" class="divider"></li>
 								    <li><a href="#">Mark as Drawing</a></li>
 								    <li><a href="#">Mark as Colored</a></li>
 >>>>>>> 17669a2ebdec0d0e6c9d6822a677aa4fc0c05aff
 >>>>>>> efca031c3b815c21bdf011c91544b72658072863
+>>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
 								</ul>
 						  	</div>
 						</div>
@@ -371,8 +429,13 @@
 													<textarea name="postcaption" id="pcaption" class="form-control">{{$post->caption}}</textarea>
 													{{-- <input type="text" id="pcaption" name="postcaption" value="{{$post->caption}}"> --}}
 =======
+<<<<<<< HEAD
+													<textarea name="postcaption" id="pcaption" class="form-control">{{$post->caption}}</textarea>
+													{{-- <input type="text" id="pcaption" name="postcaption" value="{{$post->caption}}"> --}}
+=======
 													<input type="text" id="pcaption" name="postcaption" value="{{$post->caption}}">
 >>>>>>> efca031c3b815c21bdf011c91544b72658072863
+>>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
 												</div>
 											</div>
 											<div class="form-group">
@@ -539,6 +602,9 @@
 			}
 		});
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
 		}
 
 	}
@@ -593,6 +659,17 @@
 
 		}
 	});
+<<<<<<< HEAD
+
+
+	function showComment(id){
+		$('#commentdiv'+id).toggle();
+
+		// $('#showComments'+id).click(function(){
+		// $('#commentdiv'+id).toggle();
+		// });
+=======
+>>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
 
 
 	function showComment(id){
@@ -636,7 +713,14 @@
 			$('#body'+id).val('');
 		});
 	}
+<<<<<<< HEAD
+
+	
+
+
+=======
 >>>>>>> efca031c3b815c21bdf011c91544b72658072863
+>>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
 </script>
 
 @endsection

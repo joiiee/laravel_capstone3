@@ -11,8 +11,12 @@
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/register');
 });
 
 use App\User;
@@ -83,10 +87,21 @@ Route::get('like', 'LikeController@addLike');
 Route::get('test','LikeController@test');
 
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
 Route::get('unlike', 'LikeController@deleteLike');
 
 Route::post('/users/profile','UserController@editProfile');
 
+<<<<<<< HEAD
+Route::get('/users/profile/{id}','UserController@theirProfile');
+
+Route::get('/users/profile/{id}','UserController@theirProfileHome');
+
+=======
+>>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
 Route::post('/users/{post}/comments','CommentsController@store');
 
 Route::post('/homes/{post}/comments','CommentsController@store');
@@ -109,6 +124,11 @@ Route::get('search', function(Request $request){
 // Route::post('/users/register','RegistrationController@store');
 
 
+<<<<<<< HEAD
+
+// Route::get('/login','SessionsController@create');
+
+=======
 <<<<<<< HEAD
 
 // Route::get('/login','SessionsController@create');
@@ -139,6 +159,7 @@ Route::post('/delete_post/{id}','PostController@deletePost');
 
 >>>>>>> 17669a2ebdec0d0e6c9d6822a677aa4fc0c05aff
 >>>>>>> efca031c3b815c21bdf011c91544b72658072863
+>>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
 // Route::get('/logout','SessionsController@destroy')
 
 

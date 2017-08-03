@@ -46,15 +46,27 @@
                        {{--  {{ config('app.name', 'Laravel') }} --}}
                     </a>
                 </div>
-
+            
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
+<<<<<<< HEAD
+                    @if (Route::has('login'))
+                        @if (Auth::check())
+                            <ul class="nav navbar-nav">
+                                <li><a href="/users">Users</a></li>
+                                <li><a href="/users/profile">Profile</a></li>
+                                <li><a href="/homes">Home</a></li>
+                            </ul>
+                        @endif
+                    @endif
+=======
                     <ul class="nav navbar-nav">
                         <li><a href="/users">Users</a></li>
                         <li><a href="/users/profile">Profile</a></li>
                         <li><a href="/homes">Home</a></li>
                     </ul>
 
+>>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->

@@ -62,8 +62,12 @@ class UserController extends Controller
 <<<<<<< HEAD
         if (!empty($request->imgpost)){
 =======
+<<<<<<< HEAD
+        if (!empty($request->imgpost)){
+=======
         if (!empty($request->postimage)){
 >>>>>>> efca031c3b815c21bdf011c91544b72658072863
+>>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
             $image=$request->imgpost;
             $filenames = time().'.'. $image->getClientOriginalExtension();
             // $path=public_path('imageUploads/'.$filename);
@@ -77,14 +81,75 @@ class UserController extends Controller
     }
 
     function showPosts(){
+<<<<<<< HEAD
+        $posts = Post::withCount('comments')->get();
+        $friends = Auth::user()->friends();
+        $connections = Auth::user()->myRequests->merge(Auth::user()->theirRequests);
+        // $users = User::all();
+        $user = Auth::user();
+
+        return view('/pages/profile', compact('posts','friends','connections','user'));
+    }
+
+    function theirProfile($id){
+        $posts = Post::withCount('comments')->get();
+        $user = User::find($id);
+        $friends = $user->friends();
+        $connections = $user->myRequests->merge($user->theirRequests);
+        // $users = User::all();
+
+        return view('/pages/profile', compact('posts','friends','connections','user'));
+    }
+
+    function theirProfileHome($id){
+        $posts = Post::withCount('comments')->get();
+        $user = User::find($id);
+        $friends = $user->friends();
+        $connections = $user->myRequests->merge($user->theirRequests);
+        // $users = User::all();
+
+        return view('/pages/profile', compact('posts','friends','connections','user'));
+    }
+
+    function showAllPosts(){
+=======
+>>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
         $posts = Post::latest()->get();
         $friends = Auth::user()->friends();
         $connections = Auth::user()->myRequests->merge(Auth::user()->theirRequests);
         $users = User::all();
 
-        return view('/pages/profile', compact('posts','friends','connections','users'));
+        return view('/pages/home', compact('posts','friends','connections','users'));
     }
 
+    function editProfile(Request $request) {
+        $this->validate($request,[
+            'profname'=>'required',
+            'profemail'=>'required',
+            'profpic'=>'image|nullable|max:1999'
+        ]);
+
+        $edit_prof = Auth::user();
+        $edit_prof->name=$request->profname;
+        $edit_prof->email=$request->profemail;
+        
+        if (empty($request->profpic)) {
+            $edit_prof->avatar=Auth::user()->avatar;
+        } else {
+            $myimage=$request->profpic;
+            $filenames = time().'.'. $myimage->getClientOriginalExtension();
+            $myimage->move('user',$filenames);
+            $edit_prof->avatar= 'user/'.$filenames;
+        }
+        
+        $edit_prof->save();
+
+        return back();
+        // return redirect('/users/profile');
+    }
+
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
@@ -129,6 +194,7 @@ class UserController extends Controller
         // return redirect('/users/profile');
     }
 
+>>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
     // }
 
 
