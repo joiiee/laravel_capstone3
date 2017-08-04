@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Friend Request_Project 3') }}</title>
+    <title> @yield('title') </title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -28,7 +28,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-inverse navbar-static-top navbar-fixed-top">
+        <nav class="navbar navbar-static-top navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
 
@@ -41,15 +41,14 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/users') }}">
-                        Friend Request Proj3
+                    <a class="navbar-brand" href="{{ url('/users/profile') }}">
+                        myPlann'r
                        {{--  {{ config('app.name', 'Laravel') }} --}}
                     </a>
                 </div>
             
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
-<<<<<<< HEAD
                     @if (Route::has('login'))
                         @if (Auth::check())
                             <ul class="nav navbar-nav">
@@ -59,14 +58,6 @@
                             </ul>
                         @endif
                     @endif
-=======
-                    <ul class="nav navbar-nav">
-                        <li><a href="/users">Users</a></li>
-                        <li><a href="/users/profile">Profile</a></li>
-                        <li><a href="/homes">Home</a></li>
-                    </ul>
-
->>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
@@ -76,7 +67,7 @@
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                   <img class="img-circle" src="{{asset(Auth::user()->avatar)}}" height="23px;" width="auto;"> {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">

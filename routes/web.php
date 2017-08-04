@@ -22,6 +22,11 @@ Route::get('/', function () {
 use App\User;
 use Illuminate\Http\Request;
 
+
+
+
+
+
 Route::get('/users', 'UserController@showUser');
 
 // Route::get('/users', 'UserController@showUser');
@@ -87,21 +92,15 @@ Route::get('like', 'LikeController@addLike');
 Route::get('test','LikeController@test');
 
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
 Route::get('unlike', 'LikeController@deleteLike');
 
 Route::post('/users/profile','UserController@editProfile');
 
-<<<<<<< HEAD
 Route::get('/users/profile/{id}','UserController@theirProfile');
 
 Route::get('/users/profile/{id}','UserController@theirProfileHome');
 
-=======
->>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
 Route::post('/users/{post}/comments','CommentsController@store');
 
 Route::post('/homes/{post}/comments','CommentsController@store');
@@ -118,35 +117,14 @@ Route::get('search', function(Request $request){
 });
 
 
-
-// Route::get('/users/register','RegistrationController@create');
-
-// Route::post('/users/register','RegistrationController@store');
-
-
-<<<<<<< HEAD
-
-// Route::get('/login','SessionsController@create');
-
-=======
-<<<<<<< HEAD
-
-// Route::get('/login','SessionsController@create');
-
-=======
-
-// Route::get('/login','SessionsController@create');
-
-<<<<<<< HEAD
-=======
-Route::post('/users/profile','UserController@editProfile');
-
-Route::post('/users/{post}/comments','CommentsController@store');
-
-Route::post('/edit_post/{id}','PostController@editPost');
-
-Route::post('/delete_post/{id}','PostController@deletePost');
-
+Route::group(['middleware' => 'auth'], function(){
+	Route::get('/users', 'UserController@showUser');
+	Route::get('/users/profile','UserController@showPosts');
+	Route::get('unlike', 'LikeController@deleteLike');
+	Route::get('/homes','UserController@showAllPosts');
+	Route::get('like', 'LikeController@addLike');
+	Route::post('/users/profile/newPost','UserController@saveNewPost');
+});
 
 
 // Route::get('/users/register','RegistrationController@create');
@@ -157,9 +135,6 @@ Route::post('/delete_post/{id}','PostController@deletePost');
 
 // Route::get('/login','SessionsController@create');
 
->>>>>>> 17669a2ebdec0d0e6c9d6822a677aa4fc0c05aff
->>>>>>> efca031c3b815c21bdf011c91544b72658072863
->>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
 // Route::get('/logout','SessionsController@destroy')
 
 

@@ -59,15 +59,7 @@ class UserController extends Controller
         $new_post->when=$request->whenpost;
         $new_post->caption=$request->caption;
         // $new_post->imagepost=$request->imgpost;
-<<<<<<< HEAD
         if (!empty($request->imgpost)){
-=======
-<<<<<<< HEAD
-        if (!empty($request->imgpost)){
-=======
-        if (!empty($request->postimage)){
->>>>>>> efca031c3b815c21bdf011c91544b72658072863
->>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
             $image=$request->imgpost;
             $filenames = time().'.'. $image->getClientOriginalExtension();
             // $path=public_path('imageUploads/'.$filename);
@@ -81,7 +73,6 @@ class UserController extends Controller
     }
 
     function showPosts(){
-<<<<<<< HEAD
         $posts = Post::withCount('comments')->get();
         $friends = Auth::user()->friends();
         $connections = Auth::user()->myRequests->merge(Auth::user()->theirRequests);
@@ -112,8 +103,6 @@ class UserController extends Controller
     }
 
     function showAllPosts(){
-=======
->>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
         $posts = Post::latest()->get();
         $friends = Auth::user()->friends();
         $connections = Auth::user()->myRequests->merge(Auth::user()->theirRequests);
@@ -148,53 +137,6 @@ class UserController extends Controller
         // return redirect('/users/profile');
     }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> efca031c3b815c21bdf011c91544b72658072863
-    function showAllPosts(){
-        $posts = Post::latest()->get();
-        $friends = Auth::user()->friends();
-        $connections = Auth::user()->myRequests->merge(Auth::user()->theirRequests);
-        $users = User::all();
-
-        return view('/pages/home', compact('posts','friends','connections','users'));
-    }
-
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 17669a2ebdec0d0e6c9d6822a677aa4fc0c05aff
->>>>>>> efca031c3b815c21bdf011c91544b72658072863
-    function editProfile(Request $request) {
-        $this->validate($request,[
-            'profname'=>'required',
-            'profemail'=>'required',
-            'profpic'=>'image|nullable|max:1999'
-        ]);
-
-        $edit_prof = Auth::user();
-        $edit_prof->name=$request->profname;
-        $edit_prof->email=$request->profemail;
-        
-        if (empty($request->profpic)) {
-            $edit_prof->avatar=Auth::user()->avatar;
-        } else {
-            $myimage=$request->profpic;
-            $filenames = time().'.'. $myimage->getClientOriginalExtension();
-            $myimage->move('user',$filenames);
-            $edit_prof->avatar= 'user/'.$filenames;
-        }
-        
-        $edit_prof->save();
-
-        return back();
-        // return redirect('/users/profile');
-    }
-
->>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
     // }
 
 

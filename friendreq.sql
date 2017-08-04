@@ -3,19 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
-<<<<<<< HEAD
--- Generation Time: Aug 03, 2017 at 11:16 AM
-=======
-<<<<<<< HEAD
--- Generation Time: Aug 02, 2017 at 10:31 AM
-=======
-<<<<<<< HEAD
--- Generation Time: Aug 01, 2017 at 10:42 AM
-=======
--- Generation Time: Jul 31, 2017 at 11:05 AM
->>>>>>> 17669a2ebdec0d0e6c9d6822a677aa4fc0c05aff
->>>>>>> efca031c3b815c21bdf011c91544b72658072863
->>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
+-- Generation Time: Aug 04, 2017 at 11:17 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.2
 
@@ -70,31 +58,18 @@ INSERT INTO `comments` (`id`, `post_id`, `user_id`, `body`, `created_at`, `updat
 (16, 11, 21, 'wala pa', '2017-07-31 01:03:46', '2017-07-31 01:03:46'),
 (17, 11, 21, 'wala na', '2017-07-31 01:03:53', '2017-07-31 01:03:53'),
 (18, 11, 21, 'ewan', '2017-07-31 01:04:32', '2017-07-31 01:04:32'),
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
 (19, 11, 21, 'www', '2017-07-31 01:04:36', '2017-07-31 01:04:36'),
 (20, 4, 21, 'smile! :)', '2017-07-31 18:29:59', '2017-07-31 18:29:59'),
 (21, 11, 21, 'huy', '2017-08-01 20:55:37', '2017-08-01 20:55:37'),
 (22, 8, 21, 'hey', '2017-08-01 22:03:57', '2017-08-01 22:03:57'),
 (23, 14, 1, 'oo wala nga talaga hahaha :D', '2017-08-01 22:48:54', '2017-08-01 22:48:54'),
-<<<<<<< HEAD
 (24, 15, 27, 'dasfdsafd', '2017-08-01 23:18:12', '2017-08-01 23:18:12'),
 (25, 17, 21, 'hi', '2017-08-02 18:45:51', '2017-08-02 18:45:51'),
 (26, 17, 21, 'hello', '2017-08-02 22:29:11', '2017-08-02 22:29:11'),
-(27, 1, 21, 'arrggggh!!', '2017-08-02 23:38:08', '2017-08-02 23:38:08');
-=======
-(24, 15, 27, 'dasfdsafd', '2017-08-01 23:18:12', '2017-08-01 23:18:12');
-=======
-<<<<<<< HEAD
-(19, 11, 21, 'www', '2017-07-31 01:04:36', '2017-07-31 01:04:36'),
-(20, 4, 21, 'smile! :)', '2017-07-31 18:29:59', '2017-07-31 18:29:59');
-=======
-(19, 11, 21, 'www', '2017-07-31 01:04:36', '2017-07-31 01:04:36');
->>>>>>> 17669a2ebdec0d0e6c9d6822a677aa4fc0c05aff
->>>>>>> efca031c3b815c21bdf011c91544b72658072863
->>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
+(27, 1, 21, 'arrggggh!!', '2017-08-02 23:38:08', '2017-08-02 23:38:08'),
+(28, 18, 21, 'advance happy birthday !', '2017-08-03 08:29:53', '2017-08-03 08:29:53'),
+(29, 6, 22, 'huhhuuuuuuuuuuuuuu', '2017-08-03 14:15:06', '2017-08-03 14:15:06'),
+(30, 13, 21, 'sheeet', '2017-08-03 15:03:56', '2017-08-03 15:03:56');
 
 -- --------------------------------------------------------
 
@@ -120,51 +95,21 @@ INSERT INTO `friend_requests` (`id`, `from`, `to`, `status`, `created_at`, `upda
 (2, '21', '5', 0, NULL, NULL),
 (3, '21', '6', 0, NULL, NULL),
 (4, '21', '4', 1, NULL, NULL),
-<<<<<<< HEAD
-=======
-(7, '21', '2', 1, NULL, NULL),
->>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
 (10, '21', '1', 1, NULL, NULL),
 (11, '21', '11', 0, NULL, NULL),
 (13, '21', '7', 0, NULL, NULL),
 (16, '1', '2', 1, NULL, NULL),
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> efca031c3b815c21bdf011c91544b72658072863
->>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
 (18, '22', '20', 0, NULL, NULL),
 (24, '21', '14', 0, NULL, NULL),
 (29, '22', '9', 0, NULL, NULL),
 (33, '21', '15', 1, NULL, NULL),
 (34, '15', '5', 0, NULL, NULL),
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
 (35, '15', '1', 0, NULL, NULL),
 (37, '23', '21', 0, NULL, NULL),
 (38, '23', '22', 1, NULL, NULL),
 (39, '23', '26', 0, NULL, NULL),
-<<<<<<< HEAD
 (42, '1', '27', 1, NULL, NULL),
 (43, '21', '2', 0, NULL, NULL);
-=======
-(42, '1', '27', 1, NULL, NULL);
-=======
-(35, '15', '1', 0, NULL, NULL);
-=======
-(17, '21', '22', 1, NULL, NULL),
-(18, '22', '20', 0, NULL, NULL),
-(20, '22', '1', 0, NULL, NULL),
-(22, '22', '2', 0, NULL, NULL),
-(23, '26', '22', 0, NULL, NULL),
-(24, '21', '14', 0, NULL, NULL);
->>>>>>> 17669a2ebdec0d0e6c9d6822a677aa4fc0c05aff
->>>>>>> efca031c3b815c21bdf011c91544b72658072863
->>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
 
 -- --------------------------------------------------------
 
@@ -185,16 +130,6 @@ CREATE TABLE `likes` (
 --
 
 INSERT INTO `likes` (`id`, `post_id`, `user_id`, `created_at`, `updated_at`) VALUES
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> efca031c3b815c21bdf011c91544b72658072863
->>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
-(15, 1, 21, '2017-07-31 18:09:50', '2017-07-31 18:09:50'),
-(16, 2, 21, '2017-07-31 18:11:21', '2017-07-31 18:11:21'),
-(17, 4, 21, '2017-07-31 18:18:37', '2017-07-31 18:18:37'),
 (20, 12, 2, '2017-07-31 21:30:28', '2017-07-31 21:30:28'),
 (21, 12, 22, '2017-07-31 21:55:27', '2017-07-31 21:55:27'),
 (22, 11, 22, '2017-07-31 22:04:02', '2017-07-31 22:04:02'),
@@ -202,28 +137,21 @@ INSERT INTO `likes` (`id`, `post_id`, `user_id`, `created_at`, `updated_at`) VAL
 (28, 8, 22, '2017-07-31 22:05:39', '2017-07-31 22:05:39'),
 (29, 7, 22, '2017-07-31 22:07:42', '2017-07-31 22:07:42'),
 (30, 7, 22, '2017-07-31 22:07:48', '2017-07-31 22:07:48'),
-(31, 6, 22, '2017-07-31 22:08:14', '2017-07-31 22:08:14'),
 (35, 3, 22, '2017-07-31 22:22:15', '2017-07-31 22:22:15'),
 (40, 5, 22, '2017-07-31 22:31:59', '2017-07-31 22:31:59'),
-<<<<<<< HEAD
 (41, 9, 2, '2017-07-31 22:47:49', '2017-07-31 22:47:49'),
 (42, 12, 21, '2017-08-01 03:08:07', '2017-08-01 03:08:07'),
-(44, 11, 21, '2017-08-01 03:35:57', '2017-08-01 03:35:57'),
 (45, 14, 1, '2017-08-01 22:48:39', '2017-08-01 22:48:39'),
-(46, 17, 21, '2017-08-02 23:25:13', '2017-08-02 23:25:13');
-=======
-<<<<<<< HEAD
-(41, 9, 2, '2017-07-31 22:47:49', '2017-07-31 22:47:49'),
-(42, 12, 21, '2017-08-01 03:08:07', '2017-08-01 03:08:07'),
-(44, 11, 21, '2017-08-01 03:35:57', '2017-08-01 03:35:57'),
-(45, 14, 1, '2017-08-01 22:48:39', '2017-08-01 22:48:39');
-=======
-(41, 9, 2, '2017-07-31 22:47:49', '2017-07-31 22:47:49');
-=======
-(11, 1, 22, '2017-07-27 00:48:40', '2017-07-27 00:48:40');
->>>>>>> 17669a2ebdec0d0e6c9d6822a677aa4fc0c05aff
->>>>>>> efca031c3b815c21bdf011c91544b72658072863
->>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
+(49, 18, 4, '2017-08-03 08:33:47', '2017-08-03 08:33:47'),
+(51, 3, 21, '2017-08-03 14:11:38', '2017-08-03 14:11:38'),
+(53, 6, 22, '2017-08-03 14:20:37', '2017-08-03 14:20:37'),
+(54, 4, 21, '2017-08-03 14:24:48', '2017-08-03 14:24:48'),
+(57, 5, 21, '2017-08-03 14:30:24', '2017-08-03 14:30:24'),
+(59, 7, 21, '2017-08-03 14:35:17', '2017-08-03 14:35:17'),
+(60, 8, 21, '2017-08-03 14:36:32', '2017-08-03 14:36:32'),
+(63, 17, 21, '2017-08-03 15:02:23', '2017-08-03 15:02:23'),
+(65, 11, 21, '2017-08-03 15:03:11', '2017-08-03 15:03:11'),
+(66, 13, 21, '2017-08-03 15:03:37', '2017-08-03 15:03:37');
 
 -- --------------------------------------------------------
 
@@ -282,7 +210,7 @@ CREATE TABLE `posts` (
   `what` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `where` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `when` date NOT NULL,
-  `caption` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `caption` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `imagepost` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL
@@ -296,39 +224,19 @@ INSERT INTO `posts` (`id`, `user_id`, `what`, `where`, `when`, `caption`, `creat
 (1, 21, 'adfadsfsd', 'fadfsadsf', '2017-07-26', 'adfasdfsd', '2017-07-25 22:48:26', '2017-07-25 22:48:26', ''),
 (2, 21, 'aq', 'aq', '2017-07-26', 'aq', '2017-07-25 22:50:45', '2017-07-25 22:50:45', ''),
 (3, 21, 'adfadsf', 'asdfasdf', '2017-07-27', 'adfadsf', '2017-07-25 22:51:44', '2017-07-25 22:51:44', ''),
-<<<<<<< HEAD
 (4, 21, 'sample post kitakita', 'japan', '2017-08-06', 'fadfasf', '2017-07-26 00:33:05', '2017-07-31 18:29:26', 'imageUploads/edited/1501554566.jpg'),
-=======
-<<<<<<< HEAD
-(4, 21, 'sample post kitakita', 'japan', '2017-08-06', 'fadfasf', '2017-07-26 00:33:05', '2017-07-31 18:29:26', 'imageUploads/edited/1501554566.jpg'),
-=======
-<<<<<<< HEAD
-(4, 21, 'sample post kitakita', 'japan', '2017-08-06', 'fadfasf', '2017-07-26 00:33:05', '2017-07-31 18:29:26', 'imageUploads/edited/1501554566.jpg'),
-=======
-(4, 21, 'sample post kitakita', 'japan', '2017-08-06', 'fadfasf', '2017-07-26 00:33:05', '2017-07-26 00:33:05', 'cam.jpg'),
->>>>>>> 17669a2ebdec0d0e6c9d6822a677aa4fc0c05aff
->>>>>>> efca031c3b815c21bdf011c91544b72658072863
->>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
 (5, 21, 'sample itey itey', 'sample itey itey', '2017-07-27', 'sample caption itey', '2017-07-26 03:48:46', '2017-07-30 21:27:42', 'noimagepost.jpg'),
-(6, 22, 'binagyo', 'tuitt', '2017-07-27', 'hetooo akoooo basang basa sa ulaaaaaaaaan!!!! XD', '2017-07-26 17:10:30', '2017-07-26 17:10:30', 'bg4.jpg'),
+(6, 22, 'binagyoooo', 'tuitt', '2017-07-27', 'hetooo akoooo basang basa sa ulaaaaaaaaan!!!! XD', '2017-07-26 17:10:30', '2017-08-03 14:14:52', 'bg4.jpg'),
 (7, 21, 'faaaaaaaak', 'faaaaaaaaak', '2017-07-28', 'faaaaaaaaaaaaaak', '2017-07-27 19:03:35', '2017-07-27 19:03:35', 'imageUploads/1501211015.jpg'),
 (8, 21, 'AWESOME', 'awesome', '2017-07-28', 'awesome', '2017-07-27 20:48:08', '2017-07-30 22:05:47', 'noimagepost.jpg'),
 (9, 1, 'dfasfdsafdsf', 'asdfasdfsaf', '2017-07-28', 'adsfasfsda', '2017-07-27 23:14:57', '2017-07-27 23:14:57', 'imageUploads/1501226097.jpg'),
 (11, 21, 'awtss', 'awtss', '2017-07-31', 'awtwss', '2017-07-30 22:33:39', '2017-07-30 22:33:39', NULL),
-<<<<<<< HEAD
 (12, 21, 'owyeahh', 'tuittee', '2017-07-31', 'adfasdf', '2017-07-30 22:43:35', '2017-07-30 23:53:18', 'imageUploads/edited/1501487598.jpg'),
 (13, 21, 'Graduation of Batch 4 Day Tuitt Students, last day naaaaa :\'(', 'Uncle Moe\'s', '2017-08-08', 'Till we meet again, sana we\'ll keep in touch pa din after graduation. #sepanxAttack -_-', '2017-08-01 05:41:13', '2017-08-01 19:30:59', 'imageUploads/edited/1501595078.jpg'),
 (14, 27, 'walang poreber!!', 'sa earth', '2017-08-02', 'tseee', '2017-08-01 22:17:32', '2017-08-01 23:17:39', 'imageUploads/edited/1501654672.jpg'),
-(17, 21, 'uwian na', 'tuitt', '2017-08-02', 'uwian na, tara na', '2017-08-02 00:46:58', '2017-08-02 00:46:58', 'imageUploads/1501663618.jpg');
-=======
-<<<<<<< HEAD
-(12, 21, 'owyeahh', 'tuittee', '2017-07-31', 'adfasdf', '2017-07-30 22:43:35', '2017-07-30 23:53:18', 'imageUploads/edited/1501487598.jpg'),
-(13, 21, 'Graduation of Batch 4 Day Tuitt Students, last day naaaaa :\'(', 'Uncle Moe\'s', '2017-08-08', 'Till we meet again, sana we\'ll keep in touch pa din after graduation. #sepanxAttack -_-', '2017-08-01 05:41:13', '2017-08-01 19:30:59', 'imageUploads/edited/1501595078.jpg'),
-(14, 27, 'walang poreber!!', 'sa earth', '2017-08-02', 'tseee', '2017-08-01 22:17:32', '2017-08-01 23:17:39', 'imageUploads/edited/1501654672.jpg');
-=======
-(12, 21, 'owyeahh', 'tuittee', '2017-07-31', 'adfasdf', '2017-07-30 22:43:35', '2017-07-30 23:53:18', 'imageUploads/edited/1501487598.jpg');
->>>>>>> efca031c3b815c21bdf011c91544b72658072863
->>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
+(17, 21, 'uwian na', 'tuitt', '2017-08-02', 'uwian na, tara na', '2017-08-02 00:46:58', '2017-08-02 00:46:58', 'imageUploads/1501663618.jpg'),
+(18, 4, 'Birthday ni papsikels', 'Bahay langs', '2017-08-07', NULL, '2017-08-03 07:45:25', '2017-08-03 08:12:59', NULL),
+(19, 22, 'sample plan for today', 'dito lang sa tuitt', '2017-08-04', NULL, '2017-08-03 20:26:39', '2017-08-03 20:26:39', NULL);
 
 -- --------------------------------------------------------
 
@@ -352,27 +260,13 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `avatar`, `remember_token`, `created_at`, `updated_at`) VALUES
-<<<<<<< HEAD
 (1, 'Mariane Heidenreich', 'pleffler@bruen.net', '$2y$10$vMUGa8p25JJc52/FUkFeQ.aVPdsX1wkHYhKDZxu6KgHP3nss2bgQK', 'http://lorempixel.com/200/200/?69144', 'Uf3iXSWEV8aHsnPC28D7FyAXMabOBoh7Tg3h6OB3lMMovFAhtW4BplAyH3uz', NULL, NULL),
 (2, 'Dr. Ken Reilly', 'kutch.caleb@yahoo.com', '$2y$10$sE0bWOlAWf1P/qz1qgmtVO1XxjAJv6dPotYlWU69CfDm/S67WCpfG', 'http://lorempixel.com/200/200/?34879', 'aJEaiETlkz90KTtDZLdE8BkGtwAVzzLfzr5aW5IYLhI4qLFob9nLICXUszTM', NULL, NULL),
-=======
-<<<<<<< HEAD
-(1, 'Mariane Heidenreich', 'pleffler@bruen.net', '$2y$10$vMUGa8p25JJc52/FUkFeQ.aVPdsX1wkHYhKDZxu6KgHP3nss2bgQK', 'http://lorempixel.com/200/200/?69144', 'Uf3iXSWEV8aHsnPC28D7FyAXMabOBoh7Tg3h6OB3lMMovFAhtW4BplAyH3uz', NULL, NULL),
-(2, 'Dr. Ken Reilly', 'kutch.caleb@yahoo.com', '$2y$10$sE0bWOlAWf1P/qz1qgmtVO1XxjAJv6dPotYlWU69CfDm/S67WCpfG', 'http://lorempixel.com/200/200/?34879', 'aJEaiETlkz90KTtDZLdE8BkGtwAVzzLfzr5aW5IYLhI4qLFob9nLICXUszTM', NULL, NULL),
-=======
-(1, 'Mariane Heidenreich', 'pleffler@bruen.net', '$2y$10$vMUGa8p25JJc52/FUkFeQ.aVPdsX1wkHYhKDZxu6KgHP3nss2bgQK', 'http://lorempixel.com/200/200/?69144', 'bUME17MzHqtC2SYkWzXqema5xll7Lumkat4WAqiwPO39BxNGPRQuTsssbB4F', NULL, NULL),
-<<<<<<< HEAD
-(2, 'Dr. Ken Reilly', 'kutch.caleb@yahoo.com', '$2y$10$sE0bWOlAWf1P/qz1qgmtVO1XxjAJv6dPotYlWU69CfDm/S67WCpfG', 'http://lorempixel.com/200/200/?34879', 'kTDWhEeLKG7IGTYewkjco7VAJNSslJFPiCepjy82vAFImnHMKpRjKF3cJMYq', NULL, NULL),
-=======
-(2, 'Dr. Ken Reilly', 'kutch.caleb@yahoo.com', '$2y$10$sE0bWOlAWf1P/qz1qgmtVO1XxjAJv6dPotYlWU69CfDm/S67WCpfG', 'http://lorempixel.com/200/200/?34879', 'akrIm06akmh9m6FNYMQ0nJWN4Dmk8pdJGKUeITEEqjyTjkZnrt17iJCZuk4a', NULL, NULL),
->>>>>>> 17669a2ebdec0d0e6c9d6822a677aa4fc0c05aff
->>>>>>> efca031c3b815c21bdf011c91544b72658072863
->>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
 (3, 'Ms. Alyson Witting III', 'abelardo.brown@nader.info', '$2y$10$40NUH2E78It5yrODEWo.X.2HbCunahskI6O0aUpwO7gLYs15L/OeK', 'http://lorempixel.com/200/200/?80970', '1dpMmD6uxYCxkwh6xiklBlg7XNndx0YahmFYUjAKyoZkFei83KTYzrghO9fA', NULL, NULL),
-(4, 'Dr. Jaycee Thiel V', 'dell97@little.com', '$2y$10$1NG/AYfh53ol0faMoH76R.IvtZ1O9epBlZirY9gi8Q5V7h0eTmleC', 'http://lorempixel.com/200/200/?14898', 'XpeqLl3cEjUewUkOtLWxZFdMCZ6p4GXHWsRBuEIPkH6XiHKNYOKOnV5mmFhU', NULL, NULL),
+(4, 'Dr. Jaycee Thiel V', 'dell97@little.com', '$2y$10$1NG/AYfh53ol0faMoH76R.IvtZ1O9epBlZirY9gi8Q5V7h0eTmleC', 'http://lorempixel.com/200/200/?14898', 'cwMlH7rnngB2FJQgd0uMZMbloAHcMRL0zDdK4VcDidA62ptHHajQLkUrKzVc', NULL, NULL),
 (5, 'Cole Lehner', 'sylvester.volkman@zboncak.com', '$2y$10$bED9uxYjFfNUK2eReD97b.s.pZWtaTe2m1Ug2/EP.IcUwnEzIUhne', 'http://lorempixel.com/200/200/?80731', NULL, NULL, NULL),
 (6, 'Marcelle Mertz', 'johns.adolf@hotmail.com', '$2y$10$aUZe8WbdDmdLT4toU7BBVOpeNpzglfldBVbxWa.e3fNQeWdW40dqu', 'http://lorempixel.com/200/200/?36048', NULL, NULL, NULL),
-(7, 'Novella Lakin', 'georgette.rosenbaum@barrows.biz', '$2y$10$TTma85sDc7tslxPdXjn7C.7vuuIw6pDjQqIKNAENGS7HZfUSmr0gK', 'http://lorempixel.com/200/200/?70796', NULL, NULL, NULL),
+(7, 'Novella Lakin', 'georgette.rosenbaum@barrows.biz', '$2y$10$TTma85sDc7tslxPdXjn7C.7vuuIw6pDjQqIKNAENGS7HZfUSmr0gK', 'http://lorempixel.com/200/200/?70796', 'ouq8ecJ61j5Qlvu3cO1De53uIUr1U5tpoDwL9pLGi0nq4COqBv5cPTY3GWXv', NULL, NULL),
 (8, 'Dr. Jorge Lebsack Jr.', 'pfeffer.katelynn@hotmail.com', '$2y$10$zrOsY2248qnTW1lFPgnQFOJIQIpSxtlfFCTLtEmPVAxRgFSa2uHDq', 'http://lorempixel.com/200/200/?41735', NULL, NULL, NULL),
 (9, 'Mr. Abelardo Reichel', 'marks.cydney@pfannerstill.biz', '$2y$10$v0RbobVpycQBZP6wvnKGTOx4wzVG/GOFCTVyzcfi4hBRTEQqzvBUi', 'http://lorempixel.com/200/200/?64874', 'h0GdDTBRXcmji0ntzpOAB3snor3R5rV6jSszhN0po4bVlEnNRtKGviwrpu1M', NULL, NULL),
 (10, 'Aliyah Ward', 'lillian15@gmail.com', '$2y$10$KGDB/Av28lghXLEddrOpmeY.4Xx6QUmrzv9Ace7TsvAKOWlxEEIDm', 'http://lorempixel.com/200/200/?37867', 'fLyYRSDbPq1uSfTAqv1S90S7bjGYCWsNN5cZndam6UxyUtYu48PKiits305g', NULL, NULL),
@@ -386,32 +280,12 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `avatar`, `remember_toke
 (18, 'Norberto Cassin', 'zbergnaum@hauck.com', '$2y$10$Iijb4Nr351Gir.Rg4aE2SeJqJwXx/GGerDrlyIwgvb0ljAUdnbvC2', 'http://lorempixel.com/200/200/?23523', NULL, NULL, NULL),
 (19, 'Dr. Elmer Koch MD', 'zkunde@yahoo.com', '$2y$10$WgsiPSqTHbkrQ042jmlH2e./Xm7ezd/pXr6vL4J1VXGI1YLEgIji6', 'http://lorempixel.com/200/200/?71526', NULL, NULL, NULL),
 (20, 'Domenic Glover', 'grant32@aufderhar.biz', '$2y$10$C8Ln.nv6Rj4NU6p83q3C8OYfRa5/ms6c4L8FMHBDmLqmjZF3ucjyC', 'http://lorempixel.com/200/200/?94704', NULL, NULL, NULL),
-<<<<<<< HEAD
-(21, 'juliecabss', 'julie@gmail.com', '$2y$10$3QLnfEHVXuThQtphtutgDu7Ts0VZnZFJ6lQ1BLiDsHJ3Spd9Tfme6', 'user/1501345497.jpg', 'bXN2iDoNuMuESs00IRWZxq9PNLNUlqJdQZd9pViHYqoqF19iUzNAatZiDhzf', '2017-07-19 17:33:46', '2017-07-29 08:24:57'),
-(22, 'jcabsieyeaaah', 'jcab@email.com', '$2y$10$lRO.g6tMpOrJUFqHvOxn8uYUoBAXwk2wmNy9MK3fHxgTMnR0JCgm.', 'user/1501302873.jpg', 'mwciweNO2oRSJJcb8uOakDC16tGbGNOkxchDkoXC3Hd1Trcrnx0712LtnMgF', '2017-07-19 17:35:55', '2017-07-28 23:56:56'),
+(21, 'juliecabss', 'julie@gmail.com', '$2y$10$3QLnfEHVXuThQtphtutgDu7Ts0VZnZFJ6lQ1BLiDsHJ3Spd9Tfme6', 'user/1501345497.jpg', 'z3FcN4nhYxeD7qu8TZXQQkXA3G0OFABqBV3oOCP2EwnzUjgMVfthVdKJ7hUq', '2017-07-19 17:33:46', '2017-07-29 08:24:57'),
+(22, 'jcabsieyeaaah', 'jcab@email.com', '$2y$10$lRO.g6tMpOrJUFqHvOxn8uYUoBAXwk2wmNy9MK3fHxgTMnR0JCgm.', 'user/1501302873.jpg', 'CPRvcHy1J8TxSxNOebKqNYPi08jEXUGdKoHvt1cg8IcxqrpZ3jcK3jxIhsVH', '2017-07-19 17:35:55', '2017-07-28 23:56:56'),
 (23, 'jolesyie', 'jolesyie@gmail.com', '$2y$10$.WSzcCacXLSxvMyzktaGe.ayZuQ4wqL48BRbSXD6ZYeHvrzsX5O.6', 'user/newuser.jpg', '9NEnULW88dvkyrKEWwSIgqzSer31BcbpM7Px8lfVGkdzTrc0OZ18SE1Aa4dP', '2017-07-27 23:22:28', '2017-07-27 23:22:28'),
 (26, 'jolescabs', 'jolescabs@gmail.com', '$2y$10$i84XsgiZWVXjzflw03mBzu/CFlfHO3oxusPmNTRyS/JHK4PCr3332', 'user/1501316466.jpg', 'PIC0pES6lsklFIWQhrdnPtYhCDoBZRCaqfwtNLh0xWDgMA6xXyDU8C2YeYcL', '2017-07-29 00:20:29', '2017-07-29 00:21:06'),
 (27, 'justin', 'justin@gmail.com', '$2y$10$pKybBdU4Elfv6dsN3Q7j/uPLYUafv1qhKW0EAFtait7ILgQIE8bNe', 'user/newuser.jpg', 'o6VQvmt61k5aWHmzV337Jys3uo3QidbZgfswtgs8NjNXEXunBmu7GkmkNeS5', '2017-08-01 22:12:08', '2017-08-01 22:12:08'),
 (28, 'ruel', 'ruel@gmail.com', '$2y$10$KZBY8c0mgKBCPAznpuuDKuG2qzJ0cLLwy6Jf2oXUW/RWYHD63PfR.', 'user/1501663702.jpg', 'koHq8W0V2wVl0cd3soOjIkPIsuCJt15cAlB37T3CFrvID68IqHkvXAaJAMDq', '2017-08-02 00:47:35', '2017-08-02 00:48:22');
-=======
-<<<<<<< HEAD
-(21, 'juliecabss', 'julie@gmail.com', '$2y$10$3QLnfEHVXuThQtphtutgDu7Ts0VZnZFJ6lQ1BLiDsHJ3Spd9Tfme6', 'user/1501345497.jpg', 'WwJxYZJ3spK7aK5siDcbdBQm2ltFPbLkEDUFYnVkMHTvVWbl5TqCBjQvECwp', '2017-07-19 17:33:46', '2017-07-29 08:24:57'),
-(22, 'jcabsieyeaaah', 'jcab@email.com', '$2y$10$lRO.g6tMpOrJUFqHvOxn8uYUoBAXwk2wmNy9MK3fHxgTMnR0JCgm.', 'user/1501302873.jpg', 'mwciweNO2oRSJJcb8uOakDC16tGbGNOkxchDkoXC3Hd1Trcrnx0712LtnMgF', '2017-07-19 17:35:55', '2017-07-28 23:56:56'),
-(23, 'jolesyie', 'jolesyie@gmail.com', '$2y$10$.WSzcCacXLSxvMyzktaGe.ayZuQ4wqL48BRbSXD6ZYeHvrzsX5O.6', 'user/newuser.jpg', '9NEnULW88dvkyrKEWwSIgqzSer31BcbpM7Px8lfVGkdzTrc0OZ18SE1Aa4dP', '2017-07-27 23:22:28', '2017-07-27 23:22:28'),
-(26, 'jolescabs', 'jolescabs@gmail.com', '$2y$10$i84XsgiZWVXjzflw03mBzu/CFlfHO3oxusPmNTRyS/JHK4PCr3332', 'user/1501316466.jpg', 'PIC0pES6lsklFIWQhrdnPtYhCDoBZRCaqfwtNLh0xWDgMA6xXyDU8C2YeYcL', '2017-07-29 00:20:29', '2017-07-29 00:21:06'),
-(27, 'justin', 'justin@gmail.com', '$2y$10$pKybBdU4Elfv6dsN3Q7j/uPLYUafv1qhKW0EAFtait7ILgQIE8bNe', 'user/newuser.jpg', NULL, '2017-08-01 22:12:08', '2017-08-01 22:12:08');
-=======
-<<<<<<< HEAD
-(21, 'juliecabss', 'julie@gmail.com', '$2y$10$3QLnfEHVXuThQtphtutgDu7Ts0VZnZFJ6lQ1BLiDsHJ3Spd9Tfme6', 'user/1501345497.jpg', 'Rp9mXXC9cvWLn3SO2JfUbAzdK16vT1bgNFAymCN8pXIpTBG0RhYjO0Q2e3U4', '2017-07-19 17:33:46', '2017-07-29 08:24:57'),
-(22, 'jcabsieyeaaah', 'jcab@email.com', '$2y$10$lRO.g6tMpOrJUFqHvOxn8uYUoBAXwk2wmNy9MK3fHxgTMnR0JCgm.', 'user/1501302873.jpg', '103zRnleF6siRUQWoyM4J1NPL8vDMDnHCm9cvST7iejriUX9zMnJZScDLuzq', '2017-07-19 17:35:55', '2017-07-28 23:56:56'),
-=======
-(21, 'juliecabss', 'julie@gmail.com', '$2y$10$3QLnfEHVXuThQtphtutgDu7Ts0VZnZFJ6lQ1BLiDsHJ3Spd9Tfme6', 'user/1501345497.jpg', 'iJDWXhGXBZFWKEfyUFP9SPfKv6nM1uZqSQKRoHyJckMsH75dh6kaw0sA7Z6g', '2017-07-19 17:33:46', '2017-07-29 08:24:57'),
-(22, 'jcabsieyeaaah', 'jcab@email.com', '$2y$10$lRO.g6tMpOrJUFqHvOxn8uYUoBAXwk2wmNy9MK3fHxgTMnR0JCgm.', 'user/1501302873.jpg', 'SvY4sZzIqMkzYLPn1mr8oXWt5LEhnQT1fnXvS3K4yeYBTg0nPajhjhuiddz6', '2017-07-19 17:35:55', '2017-07-28 23:56:56'),
->>>>>>> 17669a2ebdec0d0e6c9d6822a677aa4fc0c05aff
-(23, 'jolesyie', 'jolesyie@gmail.com', '$2y$10$.WSzcCacXLSxvMyzktaGe.ayZuQ4wqL48BRbSXD6ZYeHvrzsX5O.6', 'user/newuser.jpg', 'dWdfFbjWylNUHBC7O5ZR6dHsnau4KQ8xjdL0l74fIRi4vc1ZFygqaE0iYNfl', '2017-07-27 23:22:28', '2017-07-27 23:22:28'),
-(26, 'jolescabs', 'jolescabs@gmail.com', '$2y$10$i84XsgiZWVXjzflw03mBzu/CFlfHO3oxusPmNTRyS/JHK4PCr3332', 'user/1501316466.jpg', 'PIC0pES6lsklFIWQhrdnPtYhCDoBZRCaqfwtNLh0xWDgMA6xXyDU8C2YeYcL', '2017-07-29 00:20:29', '2017-07-29 00:21:06');
->>>>>>> efca031c3b815c21bdf011c91544b72658072863
->>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
 
 --
 -- Indexes for dumped tables
@@ -468,53 +342,17 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-<<<<<<< HEAD
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
-=======
-<<<<<<< HEAD
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
-=======
-<<<<<<< HEAD
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
-=======
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
->>>>>>> 17669a2ebdec0d0e6c9d6822a677aa4fc0c05aff
->>>>>>> efca031c3b815c21bdf011c91544b72658072863
->>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 --
 -- AUTO_INCREMENT for table `friend_requests`
 --
 ALTER TABLE `friend_requests`
-<<<<<<< HEAD
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
-=======
-<<<<<<< HEAD
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
-=======
-<<<<<<< HEAD
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
-=======
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
->>>>>>> 17669a2ebdec0d0e6c9d6822a677aa4fc0c05aff
->>>>>>> efca031c3b815c21bdf011c91544b72658072863
->>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
 --
 -- AUTO_INCREMENT for table `likes`
 --
 ALTER TABLE `likes`
-<<<<<<< HEAD
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
-=======
-<<<<<<< HEAD
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
-=======
-<<<<<<< HEAD
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
-=======
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
->>>>>>> 17669a2ebdec0d0e6c9d6822a677aa4fc0c05aff
->>>>>>> efca031c3b815c21bdf011c91544b72658072863
->>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 --
 -- AUTO_INCREMENT for table `migrations`
 --
@@ -524,28 +362,12 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-<<<<<<< HEAD
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
-=======
-<<<<<<< HEAD
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-=======
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
->>>>>>> efca031c3b815c21bdf011c91544b72658072863
->>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-<<<<<<< HEAD
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
-=======
-<<<<<<< HEAD
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
-=======
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
->>>>>>> efca031c3b815c21bdf011c91544b72658072863
->>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

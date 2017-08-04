@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    myPlannr | Register
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row">
@@ -59,14 +63,6 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
-
-                       {{--  <div class="form-group">
-                            <label for="image" class="col-md-4 control-label">Profile Picture</label>
-
-                            <div class="col-md-6">
-                                <input type="file" name="avatar">
-                            </div>
-                        </div> --}}
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">

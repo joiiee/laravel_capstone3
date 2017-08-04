@@ -1,7 +1,6 @@
 @extends('layouts/app')
 
 @section('content')
-<<<<<<< HEAD
 
 	<div class="panel-group">
 		<div class="panel panel-default">
@@ -38,13 +37,5 @@
 			@endforeach
 		@endif
 	</div>
-=======
-	@foreach ($users as $user)
-		<a href='{{url("/search_result/$user->id")}}'></a>
-		<p>{{$user->name}}</p>
-	@endforeach
-
-
->>>>>>> 9ac16a85a31be2e0e475914a130da587632fe980
 
 @endsection
