@@ -82,6 +82,10 @@ body {
 	min-width: 200px;
 }
 
+.profleft p {
+	text-align: left;
+}
+
 .profleft img {
 	padding-bottom: 15px;
 }
@@ -157,4 +161,9 @@ body {
 
 .nav-tabs > li > a {
 	color: #C5EFF7;
+}
+
+.addpostbtn {
+	padding-top: 20px;
+	padding-bottom: 20px; 
 }

@@ -7,13 +7,15 @@
 @section("content")
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-3 col-sm-3 col-xs-3">
+			<div class="col-md-3 col-sm-12 col-xs-12">
 				<div class="img-thumbnail profleft">
-					<img class="img-responsive" src="{{asset($user->avatar)}}">		
-					<p>Name: {{$user->name}}</p>
-					<p>Email: {{$user->email}}</p>
-					<p><a href='{{ url("/users")}}'>Friends ({{count($friends)}})</a></p>
-					<p><a type="button" data-toggle="modal" data-target="#editprof">Edit Profile</a></p>
+					<img class="img-responsive" src="{{asset($user->avatar)}}">
+					<div class="well">		
+						<p>Name: {{$user->name}}</p>
+						<p>Email: {{$user->email}}</p>
+						<p><a href='{{ url("/users")}}'>Friends ({{count($friends)}})</a></p>
+						<p><a type="button" data-toggle="modal" data-target="#editprof">Edit Profile</a></p>
+					</div>
 				</div>
 			</div>
 
@@ -67,10 +69,10 @@
 			</div>
 
 
-			<div class="col-md-8 col-sm-8 col-xs-8">
+			<div class="col-md-8 col-sm-12 col-xs-12">
 				<div class="container-fluid">	
 					{{-- add new post (modal) --}}
-					<div>
+					<div class="addpostbtn">
 						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addpost">+ Add Post</button>
 					</div>
 
@@ -228,7 +230,7 @@
 
 
 									@if ($post->user->id == Auth::user()->id)								
-										<div class="col-md-offset-1 col-md-1 col-sm-offset-1 col-sm-1 col-xs-offset-1 col-xs-1">
+										<div class="col-md-offset-1 col-md-1 col-sm-offset-1 col-sm-1  col-xs-1">
 											<div class="btn-group ">
 											  	<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 											    	<span class="caret"></span>

@@ -45,11 +45,11 @@
 			
 		<div class="tab-content">
 			<div id="userlist" class="tab-pane fade in active" >
-				<div class="container-fluid img-thumbnail searchresult">
+				<div class="row container-fluid img-thumbnail searchresult">
 					@foreach($lists as $list)
 						@if(Auth::user()->id != $list->id)	
-						<div class="flist img-thumbnail col-md-3 col-sm-3 col-xs-6">
-							<div >
+						<div class="flist  col-md-3 col-sm-6 col-xs-12">
+							<div>
 								<img src="{{ $list->avatar }}" style="width: 150px; height: 150px;">
 								<br>
 								<a class="btn btn-default" href='{{ url("/users/profile/$list->id") }}'>{{ $list->name }}</a>
@@ -132,34 +132,42 @@
 
 
 			<div id="friendlist" class="tab-pane fade" >
-				<div class=" img-thumbnail searchresult">
+				<div class="row container-fluid img-thumbnail searchresult">
 					@foreach($friends as $f)
-						<div class="flist img-thumbnail ">
-							<img class="img-responsive" src="{{$f->avatar}}" style="width: 150px; height: 150px;">
-							<p>Name: {{$f->name}}</p>
+						<div class="flist col-md-3 col-sm-6 col-xs-12">
+							<div>
+								<img src="{{ $f->avatar }}" style="width: 150px; height: 150px;">
+								
+								<br>
+								<a class="btn btn-default" href='{{ url("/users/profile/$f->id") }}'>{{ $f->name }}</a>
+								<br>
+							</div>
 						</div>
 					@endforeach
 				</div>
 			</div>
 
 			<div id="pendinglist" class="tab-pane fade" >
-				<div class="img-thumbnail searchresult">
-					@foreach($pend_req as $pr)
-						
-							<div class="flist img-thumbnail ">
-								<img class="img-responsive" src="{{$pr->avatar}}" style="width: 150px; height: 150px;">
-								<p>Name:  {{$pr->name}}</p>
-
-								<form method="POST" action='{{url("accept_request/$pr->id")}}'>
-								{{csrf_field()}}
-									<button class="btn btn-primary">Accept</button>
-								</form>
-							
-								<form method="POST" action='{{url("decline_request/$pr->id")}}'>
-								{{csrf_field()}}
-									<button class="btn btn-danger">Decline</button>
-								</form>
-							
+				<div class="row container-fluid img-thumbnail searchresult">
+					@foreach($pend_req as $pr)						
+							<div class="flist col-md-3 col-sm-6 col-xs-12">
+								<div>
+									<form method="POST" action='{{url("accept_request/$pr->id")}}'>
+									{{csrf_field()}}
+										<img src="{{ $pr->avatar }}" style="width: 150px; height: 150px;">
+									
+										<br>
+											<a class="btn btn-default" href='{{ url("/users/profile/$pr->id") }}'>{{ $pr->name }}</a>
+										<br>
+									
+										<button class="btn btn-primary">Accept</button>
+									</form>
+								
+									<form method="POST" action='{{url("decline_request/$pr->id")}}'>
+									{{csrf_field()}}
+										<button class="btn btn-danger">Decline</button>
+									</form>
+								</div>
 							</div>
 						
 					@endforeach
