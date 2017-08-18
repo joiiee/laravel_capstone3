@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 04, 2017 at 11:17 AM
+-- Generation Time: Aug 07, 2017 at 01:11 AM
 -- Server version: 10.1.21-MariaDB
--- PHP Version: 7.1.2
+-- PHP Version: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -109,7 +109,11 @@ INSERT INTO `friend_requests` (`id`, `from`, `to`, `status`, `created_at`, `upda
 (38, '23', '22', 1, NULL, NULL),
 (39, '23', '26', 0, NULL, NULL),
 (42, '1', '27', 1, NULL, NULL),
-(43, '21', '2', 0, NULL, NULL);
+(43, '21', '2', 0, NULL, NULL),
+(44, '22', '21', 0, NULL, NULL),
+(45, '26', '21', 0, NULL, NULL),
+(46, '20', '21', 0, NULL, NULL),
+(47, '21', '8', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -221,7 +225,7 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `user_id`, `what`, `where`, `when`, `caption`, `created_at`, `updated_at`, `imagepost`) VALUES
-(1, 21, 'adfadsfsd', 'fadfsadsf', '2017-07-26', 'adfasdfsd', '2017-07-25 22:48:26', '2017-07-25 22:48:26', ''),
+(1, 21, 'Reunion - Batch 4', 'Uncle Moe\'s', '2018-08-06', 'kitakits mga besh!', '2017-07-25 22:48:26', '2017-08-06 12:09:04', 'imageUploads/edited/1502050144.jpg'),
 (2, 21, 'aq', 'aq', '2017-07-26', 'aq', '2017-07-25 22:50:45', '2017-07-25 22:50:45', ''),
 (3, 21, 'adfadsf', 'asdfasdf', '2017-07-27', 'adfadsf', '2017-07-25 22:51:44', '2017-07-25 22:51:44', ''),
 (4, 21, 'sample post kitakita', 'japan', '2017-08-06', 'fadfasf', '2017-07-26 00:33:05', '2017-07-31 18:29:26', 'imageUploads/edited/1501554566.jpg'),
@@ -267,7 +271,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `avatar`, `remember_toke
 (5, 'Cole Lehner', 'sylvester.volkman@zboncak.com', '$2y$10$bED9uxYjFfNUK2eReD97b.s.pZWtaTe2m1Ug2/EP.IcUwnEzIUhne', 'http://lorempixel.com/200/200/?80731', NULL, NULL, NULL),
 (6, 'Marcelle Mertz', 'johns.adolf@hotmail.com', '$2y$10$aUZe8WbdDmdLT4toU7BBVOpeNpzglfldBVbxWa.e3fNQeWdW40dqu', 'http://lorempixel.com/200/200/?36048', NULL, NULL, NULL),
 (7, 'Novella Lakin', 'georgette.rosenbaum@barrows.biz', '$2y$10$TTma85sDc7tslxPdXjn7C.7vuuIw6pDjQqIKNAENGS7HZfUSmr0gK', 'http://lorempixel.com/200/200/?70796', 'ouq8ecJ61j5Qlvu3cO1De53uIUr1U5tpoDwL9pLGi0nq4COqBv5cPTY3GWXv', NULL, NULL),
-(8, 'Dr. Jorge Lebsack Jr.', 'pfeffer.katelynn@hotmail.com', '$2y$10$zrOsY2248qnTW1lFPgnQFOJIQIpSxtlfFCTLtEmPVAxRgFSa2uHDq', 'http://lorempixel.com/200/200/?41735', NULL, NULL, NULL),
+(8, 'Dr. Jorge Lebsack Jr.', 'pfeffer.katelynn@hotmail.com', '$2y$10$zrOsY2248qnTW1lFPgnQFOJIQIpSxtlfFCTLtEmPVAxRgFSa2uHDq', 'http://lorempixel.com/200/200/?41735', 'BmQQW2ZMdPfCtiVLyQTOINDO7DotLxXzsLFecbSsknX6InE3slM4RLJQYkzG', NULL, NULL),
 (9, 'Mr. Abelardo Reichel', 'marks.cydney@pfannerstill.biz', '$2y$10$v0RbobVpycQBZP6wvnKGTOx4wzVG/GOFCTVyzcfi4hBRTEQqzvBUi', 'http://lorempixel.com/200/200/?64874', 'h0GdDTBRXcmji0ntzpOAB3snor3R5rV6jSszhN0po4bVlEnNRtKGviwrpu1M', NULL, NULL),
 (10, 'Aliyah Ward', 'lillian15@gmail.com', '$2y$10$KGDB/Av28lghXLEddrOpmeY.4Xx6QUmrzv9Ace7TsvAKOWlxEEIDm', 'http://lorempixel.com/200/200/?37867', 'fLyYRSDbPq1uSfTAqv1S90S7bjGYCWsNN5cZndam6UxyUtYu48PKiits305g', NULL, NULL),
 (11, 'Prof. Karson Corkery', 'miracle20@gmail.com', '$2y$10$ZwkO9kDfcmDnbFwH07z2k.oytaN1MvALS6kEd02ZLCxWWLcz/3EXO', 'http://lorempixel.com/200/200/?12792', NULL, NULL, NULL),
@@ -279,11 +283,11 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `avatar`, `remember_toke
 (17, 'Janick Muller', 'wilfredo37@harber.com', '$2y$10$sRUjSmXV6BgWRER7CqYKreR8qHBEI9g4FK/9KtB8MFWvsqnZ8tuUe', 'http://lorempixel.com/200/200/?28270', NULL, NULL, NULL),
 (18, 'Norberto Cassin', 'zbergnaum@hauck.com', '$2y$10$Iijb4Nr351Gir.Rg4aE2SeJqJwXx/GGerDrlyIwgvb0ljAUdnbvC2', 'http://lorempixel.com/200/200/?23523', NULL, NULL, NULL),
 (19, 'Dr. Elmer Koch MD', 'zkunde@yahoo.com', '$2y$10$WgsiPSqTHbkrQ042jmlH2e./Xm7ezd/pXr6vL4J1VXGI1YLEgIji6', 'http://lorempixel.com/200/200/?71526', NULL, NULL, NULL),
-(20, 'Domenic Glover', 'grant32@aufderhar.biz', '$2y$10$C8Ln.nv6Rj4NU6p83q3C8OYfRa5/ms6c4L8FMHBDmLqmjZF3ucjyC', 'http://lorempixel.com/200/200/?94704', NULL, NULL, NULL),
-(21, 'juliecabss', 'julie@gmail.com', '$2y$10$3QLnfEHVXuThQtphtutgDu7Ts0VZnZFJ6lQ1BLiDsHJ3Spd9Tfme6', 'user/1501345497.jpg', 'z3FcN4nhYxeD7qu8TZXQQkXA3G0OFABqBV3oOCP2EwnzUjgMVfthVdKJ7hUq', '2017-07-19 17:33:46', '2017-07-29 08:24:57'),
-(22, 'jcabsieyeaaah', 'jcab@email.com', '$2y$10$lRO.g6tMpOrJUFqHvOxn8uYUoBAXwk2wmNy9MK3fHxgTMnR0JCgm.', 'user/1501302873.jpg', 'CPRvcHy1J8TxSxNOebKqNYPi08jEXUGdKoHvt1cg8IcxqrpZ3jcK3jxIhsVH', '2017-07-19 17:35:55', '2017-07-28 23:56:56'),
-(23, 'jolesyie', 'jolesyie@gmail.com', '$2y$10$.WSzcCacXLSxvMyzktaGe.ayZuQ4wqL48BRbSXD6ZYeHvrzsX5O.6', 'user/newuser.jpg', '9NEnULW88dvkyrKEWwSIgqzSer31BcbpM7Px8lfVGkdzTrc0OZ18SE1Aa4dP', '2017-07-27 23:22:28', '2017-07-27 23:22:28'),
-(26, 'jolescabs', 'jolescabs@gmail.com', '$2y$10$i84XsgiZWVXjzflw03mBzu/CFlfHO3oxusPmNTRyS/JHK4PCr3332', 'user/1501316466.jpg', 'PIC0pES6lsklFIWQhrdnPtYhCDoBZRCaqfwtNLh0xWDgMA6xXyDU8C2YeYcL', '2017-07-29 00:20:29', '2017-07-29 00:21:06'),
+(20, 'Domenic Glover', 'grant32@aufderhar.biz', '$2y$10$C8Ln.nv6Rj4NU6p83q3C8OYfRa5/ms6c4L8FMHBDmLqmjZF3ucjyC', 'http://lorempixel.com/200/200/?94704', 'cCO4uvSQSBpyi855DGodqKzVfkxGhrxwKJvQ1lIjveBQlFRJVxkPGn3AyxF6', NULL, NULL),
+(21, 'juliecabss', 'julie@gmail.com', '$2y$10$3QLnfEHVXuThQtphtutgDu7Ts0VZnZFJ6lQ1BLiDsHJ3Spd9Tfme6', 'user/1501345497.jpg', 'W6oXXzqmWm3HKCdmYHdkHvgZKUR0UBgUpq2LwquXqhzT1bVFvH6ptTQEuJKi', '2017-07-19 17:33:46', '2017-07-29 08:24:57'),
+(22, 'jcabsieyeaaah', 'jcab@email.com', '$2y$10$lRO.g6tMpOrJUFqHvOxn8uYUoBAXwk2wmNy9MK3fHxgTMnR0JCgm.', 'user/1501302873.jpg', 'ZH4vs8ajsPGvaks8eKWxxoilGUGzqPiP4IfPVo3D6sFXRQOQikfKTxH76ghq', '2017-07-19 17:35:55', '2017-07-28 23:56:56'),
+(23, 'jolesyie', 'jolesyie@gmail.com', '$2y$10$.WSzcCacXLSxvMyzktaGe.ayZuQ4wqL48BRbSXD6ZYeHvrzsX5O.6', 'user/newuser.jpg', 'bmVfAv4CK1KCPaTVXUhRDbAYu5cTpQDUgxNsh0ggb6fl5Cn8Ou61aTO72G77', '2017-07-27 23:22:28', '2017-07-27 23:22:28'),
+(26, 'jolescabs', 'jolescabs@gmail.com', '$2y$10$i84XsgiZWVXjzflw03mBzu/CFlfHO3oxusPmNTRyS/JHK4PCr3332', 'user/1501316466.jpg', 'ndKmiVgiUOnqANJXuWBtaXbe59fvjFtB84TTuDBv8N7q9Q7PiUoR00PixUQI', '2017-07-29 00:20:29', '2017-07-29 00:21:06'),
 (27, 'justin', 'justin@gmail.com', '$2y$10$pKybBdU4Elfv6dsN3Q7j/uPLYUafv1qhKW0EAFtait7ILgQIE8bNe', 'user/newuser.jpg', 'o6VQvmt61k5aWHmzV337Jys3uo3QidbZgfswtgs8NjNXEXunBmu7GkmkNeS5', '2017-08-01 22:12:08', '2017-08-01 22:12:08'),
 (28, 'ruel', 'ruel@gmail.com', '$2y$10$KZBY8c0mgKBCPAznpuuDKuG2qzJ0cLLwy6Jf2oXUW/RWYHD63PfR.', 'user/1501663702.jpg', 'koHq8W0V2wVl0cd3soOjIkPIsuCJt15cAlB37T3CFrvID68IqHkvXAaJAMDq', '2017-08-02 00:47:35', '2017-08-02 00:48:22');
 
@@ -347,12 +351,12 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `friend_requests`
 --
 ALTER TABLE `friend_requests`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 --
 -- AUTO_INCREMENT for table `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 --
 -- AUTO_INCREMENT for table `migrations`
 --

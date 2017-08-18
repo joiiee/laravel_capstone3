@@ -52,9 +52,9 @@
                     @if (Route::has('login'))
                         @if (Auth::check())
                             <ul class="nav navbar-nav">
-                                <li><a href="/users">Users</a></li>
                                 <li><a href="/users/profile">Profile</a></li>
                                 <li><a href="/homes">Home</a></li>
+                                <li><a href="/users">Users</a></li>
                             </ul>
                         @endif
                     @endif

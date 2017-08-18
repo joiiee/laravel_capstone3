@@ -45,7 +45,7 @@
 			
 		<div class="tab-content">
 			<div id="userlist" class="tab-pane fade in active" >
-				<div class="row container-fluid img-thumbnail searchresult">
+				<div class="row container-fluid searchresult">
 					@foreach($lists as $list)
 						@if(Auth::user()->id != $list->id)	
 						<div class="flist  col-md-3 col-sm-6 col-xs-12">
@@ -132,7 +132,7 @@
 
 
 			<div id="friendlist" class="tab-pane fade" >
-				<div class="row container-fluid img-thumbnail searchresult">
+				<div class="row container-fluid searchresult">
 					@foreach($friends as $f)
 						<div class="flist col-md-3 col-sm-6 col-xs-12">
 							<div>
@@ -148,7 +148,7 @@
 			</div>
 
 			<div id="pendinglist" class="tab-pane fade" >
-				<div class="row container-fluid img-thumbnail searchresult">
+				<div class="row container-fluid searchresult">
 					@foreach($pend_req as $pr)						
 							<div class="flist col-md-3 col-sm-6 col-xs-12">
 								<div>
