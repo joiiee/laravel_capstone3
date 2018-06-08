@@ -167,3 +167,20 @@ body {
 	padding-top: 20px;
 	padding-bottom: 20px; 
 }
+
+#ddown-edit {
+    border: none;
+    background: transparent;
+}
+
+#ddown-edit:hover {
+    color: #41a9e4;
+}
+
+.ddown-profile {
+    background-color: #f5f8fa!important;
+}
+
+.ddown-profile a:hover {
+    background-color: #C5EFF7!important;
+}

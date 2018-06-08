@@ -14,7 +14,7 @@
 						
 						<div class="col-md-10 col-sm-10 col-xs-10">
 						  <div class="media-left">
-						    <img src="{{asset($post->user->avatar)}}" class="media-object img-circle" style="width:80px; height: 80px;">
+						    <img src="{{asset($post->user->avatar)}}" class="media-object img-circle" style="width:70px; height: 70px; object-fit: cover;">
 						  </div>
 
 

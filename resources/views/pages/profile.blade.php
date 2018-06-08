@@ -146,7 +146,7 @@
 								<div class="row">
 									<div class="col-md-10 col-sm-10 col-xs-10">
 									  <div class="media-left">
-									    <img src="{{asset($post->user->avatar)}}" class="media-object img-circle" style="width:80px; height: 80px;">
+									    <img src="{{asset($post->user->avatar)}}" class="media-object img-circle" style="width:70px; height: 70px; object-fit: cover;">
 									  </div>
 
 
@@ -232,11 +232,11 @@
 									@if ($post->user->id == Auth::user()->id)								
 										<div class="col-md-offset-1 col-md-1 col-sm-offset-1 col-sm-1  col-xs-1">
 											<div class="btn-group ">
-											  	<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											  	<button id="ddown-edit" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 											    	<span class="caret"></span>
 											    	<span class="sr-only">Toggle Dropdown</span>
 											 	 </button>
-											  	<ul class="dropdown-menu dropdown-menu-right" >
+											  	<ul class="dropdown-menu dropdown-menu-right ddown-profile" >
 												    <li><a type="button" data-toggle="modal" data-target="#editpost{{$post->id}}">Edit post</a></li>
 												    <li><a type="button" data-toggle="modal" data-target="#deletepost{{$post->id}}">Delete post</a>
 												   {{--  <li role="separator" class="divider"></li>
