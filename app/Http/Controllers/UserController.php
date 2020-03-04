@@ -73,7 +73,7 @@ class UserController extends Controller
     }
 
     function showPosts(){
-        $posts = Post::withCount('comments')->get();
+        $posts = Post::latest()->withCount('comments')->get();
         $friends = Auth::user()->friends();
         $connections = Auth::user()->myRequests->merge(Auth::user()->theirRequests);
         // $users = User::all();
@@ -83,7 +83,7 @@ class UserController extends Controller
     }
 
     function theirProfile($id){
-        $posts = Post::withCount('comments')->get();
+        $posts = Post::latest()->withCount('comments')->get();
         $user = User::find($id);
         $friends = $user->friends();
         $connections = $user->myRequests->merge($user->theirRequests);
@@ -93,7 +93,7 @@ class UserController extends Controller
     }
 
     function theirProfileHome($id){
-        $posts = Post::withCount('comments')->get();
+        $posts = Post::latest()->withCount('comments')->get();
         $user = User::find($id);
         $friends = $user->friends();
         $connections = $user->myRequests->merge($user->theirRequests);

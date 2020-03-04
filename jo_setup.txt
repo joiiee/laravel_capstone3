@@ -1,0 +1,36 @@
+SETTING UP LARAVEL PROJECT IN LOCALHOST
+
+1. git clone project from github
+2. import sql in phpMyAdmin localhost
+3. copy .env.example then named .env
+4. edit .env file - 
+	DB_DATABASE = database name in localhost
+	DB_USERNAME = root
+	DB_PASSWORD =  
+5. save the .env file
+
+
+RUN IN TERMINAL INSIDE LARAVEL PROJECT
+1. composer install
+2. php artisan key:generate
+3. php artisan migrate
+4. php artisan db:seed
+	**(install js dependencies)
+5. npm install 
+	**(compile the dependencies)
+6. npm run development 
+	**Start the local development server
+7. php artisan serve
+8. access the server (http://127.0.0.1:8000 or http://localhost:8000)
+
+
+____UPDATED DEPENDENCIES____
+02.21.20
+**package.json ("devDependencies": {)
+from				to
+"axios": "^0.15.3",		"axios": ">=0.18.1"
+
+
+
+
+

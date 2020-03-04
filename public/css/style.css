@@ -101,11 +101,13 @@ body {
 }
 
 .flist {
-	padding: 15px;
-	border: 1px solid black;
-	margin: 15px;
+	/* padding: 15px; */
+	/* border: 1px solid black; */
+	/* border: 1px solid #C5EFF7; */
+	/* margin: 15px; */
 	text-align: center;
 	justify-content: center;
+	/* background-color: #336E7B; */
 }
 
 .flist img {
@@ -114,7 +116,22 @@ body {
 	padding-bottom: 20px;
 }
 
+.flist_div {
+	border: 1px solid #C5EFF7;
+    background-color: #336E7B;
+    padding: 15px;
+    margin: 15px;
+}
 
+.flist_tabs li.active a,
+.flist_tabs li.active a:hover,
+.flist_tabs li.active a:focus,
+.flist_tabs li a:hover,
+.flist_tabs li a:focus {
+	background-color: #C5EFF7;
+	color: #336E7B;
+	font-weight: bold;
+}
 
 .media {
 	padding: 20px;
@@ -163,6 +180,12 @@ body {
 	color: #C5EFF7;
 }
 
+.unfriend,
+.cancelReq {
+	margin-top: 10rem;
+}
+
+
 .addpostbtn {
 	padding-top: 20px;
 	padding-bottom: 20px; 
@@ -184,3 +207,306 @@ body {
 .ddown-profile a:hover {
     background-color: #C5EFF7!important;
 }
+
+.btnTrans {
+	border-color: transparent;
+	background-color: transparent;
+	padding-right: unset;
+}
+
+.btnTrans:focus {
+	outline: transparent;
+}
+
+.inputGroupSpan,
+.txtArea,
+.likeCommentDiv {
+	color: #336e7b;
+}
+	
+.inputGroupSpan,
+.likeCommentDiv button span,
+.likeCommentDiv {
+	font-weight: bold;
+}
+
+.wellDiv,
+.likeCommentDiv {
+	margin-left: 8rem;
+}
+
+.imagePost {
+	width: 100%; 
+	height: auto;
+}
+
+.txtArea {
+	resize: none;
+}
+
+.postComment {
+	width: 86%;
+}
+
+.profPostComment {
+	width: 86%;
+}
+
+.dateCommented {
+	font-size: x-small;
+	color: lightslategray;
+	display: block;
+}
+
+.datePosted {
+	font-size: smaller;
+	color: lightslategray;
+}
+
+.commentAvatar {
+	float: left;
+    margin-right: 10px;
+}
+
+.userAvatar {
+	float: left;
+	margin-right: 10px;
+}
+
+.userAvatar img {
+	width:70px; 
+	height: 70px; 
+	object-fit: cover;
+}
+
+.avatarDateDiv {
+	padding-left: 60px;
+	word-break: break-word;
+}
+
+.commenterDateDiv {
+	word-break: break-word;
+    padding-left: 44px;
+}
+
+.likeCommentDiv {
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+    padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.showedComments {
+	border-top: 1px solid #ccc;
+	padding-top: 15px;
+	margin-top: 5px;
+}
+
+.homePost {
+	padding: 25px;
+}
+
+.profilePost {
+	padding-top: 25px;
+	padding-left: 25px;
+	padding-bottom: 25px;
+	padding-right: unset;
+}
+
+.profileEditDeletePost {
+	padding-top: 15px;
+}
+
+#editprof {
+	margin-top: 8rem;
+}
+
+#addpost,
+.editPost {
+	margin-top: 6rem;
+}
+
+.deletePost {
+	margin-top: 15rem;
+}
+
+.rowPost {
+	margin-right: unset!important;
+	margin-left: unset!important;
+	margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.commentUser {
+	clear: both;
+	vertical-align: middle;
+}
+
+.commentUser,
+.commentBody,
+.postComment,
+.profPostComment {
+	font-weight: normal;
+}
+
+.commentBody {
+	padding-left: 45px;
+	padding-top: 1%;
+	word-break: break-word;
+}
+
+/* .showOnMobile {
+	display: none;
+} */
+
+.likeDiv,
+.commentDiv {
+	width: 27%;
+	display: table-cell;
+	text-align: center;
+}
+
+
+
+
+
+
+@media (min-width: 768px) {
+	.search-form {
+		padding-top: 10px;
+	}
+}
+
+@media (min-width: 1025px) {
+	.likeDiv, 
+	.commentDiv {
+		width: 19%;
+	}
+}
+
+@media (min-width: 1441px) {
+	.likeDiv, 
+	.commentDiv {
+		width: 10%;
+	}
+}
+
+
+
+@media screen and (max-width: 768px) {
+	.postComment {
+		width: 90%;
+	}
+
+	.profPostComment {
+		width: 89%;
+	}
+}
+
+@media screen and (max-width: 425px) {	
+	.hideOnMobile {
+		display: none;
+	}
+	
+	/* .showOnMobile {
+		display: block;
+	} */
+	
+	.likeDiv,
+	.commentDiv {
+		width: 20%;
+	}
+	
+	.likeCommentDiv i {
+		font-size: medium;
+	}
+	
+	.wellDiv, .likeCommentDiv {
+		margin-left: unset;
+		margin-top: 10px;
+	}
+	
+	.postComment {
+		width: 84%;
+	}
+
+	.profPostComment {
+		width: 82%;
+	}
+	
+	.userAvatar img {
+		width:60px; 
+		height: 60px; 
+	}
+
+	.dateCommented i {
+		font-size: x-small;
+	}
+
+	.homePost {
+		padding: 18px;
+	}
+
+	.profilePost {
+		padding-top: 18px;
+		padding-left: 10px;
+		padding-bottom: 18px;
+		padding-right: unset;
+	}
+
+	.wellDiv .postContent span,
+	.wellDiv .postContent textarea,
+	.likeCommentDiv {
+		font-size: 13px;
+	}
+
+	.profileEditDeletePost {
+		padding-right: unset;
+		padding-left: unset;
+	}
+}
+
+
+@media screen and (max-width: 375px) {
+	.userAvatar img {
+		width:50px; 
+		height: 50px; 
+	}
+
+	.wellDiv, .likeCommentDiv {
+		margin-top: unset;
+	}
+
+	.postComment {
+		width: 80%;
+	}
+
+	.profPostComment {
+		width: 79%;
+	}
+
+	.likeDiv,
+	.commentDiv {
+		width: 23%;
+	}
+}
+
+@media screen and (max-width: 320px) {	
+	.flist_div .uname {
+		white-space: pre-wrap;
+	}
+
+	.postComment {
+		width: 76%;
+	}
+	
+	.profPostComment {
+		width: 74%;
+	}
+
+	.likeDiv, 
+	.commentDiv {
+		width: 27%;
+	}
+}
+

@@ -54,16 +54,16 @@ class User extends Authenticatable
     }
 
     function declineRequest($id){
-        $this->theirRequests()->detach($id);
+        $this->theirRequests()->detach((array)$id);
     }
 
     function cancelRequest($id){
-        $this->myRequests()->detach($id);
+        $this->myRequests()->detach((array)$id);
     }
 
     function unFriend($id){
-        $this->myRequests()->detach($id);
-        $this->theirRequests()->detach($id);
+        $this->myRequests()->detach((array)$id);
+        $this->theirRequests()->detach((array)$id);
     }
 
     function likes(){

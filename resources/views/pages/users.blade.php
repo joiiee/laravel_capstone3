@@ -13,10 +13,11 @@
 	<div class="panel-group">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<div class="col-md-6"><strong><h3>Friend List</h3></strong></div><br>
+				<div class="col-md-9 col-sm-8 col-xs-12"><strong><h3>Friend List</h3></strong></div>
+				{{-- <br> --}}
 				
-				<div class="input-group search-bar col-md-6">
-					<form class="navbar-form navbar-left" method="GET" action="{{url("/search")}}">
+				<div class="input-group search-bar col-md-3 col-sm-4 col-xs-12">
+					<form class="search-form navbar-form navbar-left" method="GET" action="{{url("/search")}}">
 					  <div class="input-group">
 					    <input type="text" class="form-control" name="search" placeholder="Search">
 					    <div class="input-group-btn">
@@ -35,7 +36,7 @@
 
 
 	<div class="container-fluid">
-		<ul class="nav nav-tabs">
+		<ul class="nav nav-tabs flist_tabs">
 			<li class="active" ><a data-toggle="tab" href="#userlist">All ( {{count($lists)}} )</a></li>
 
 			<li><a href="#friendlist" data-toggle="tab">Friend List ( {{count($friends)}} )</a></li>
@@ -48,11 +49,11 @@
 				<div class="row container-fluid searchresult">
 					@foreach($lists as $list)
 						@if(Auth::user()->id != $list->id)	
-						<div class="flist  col-md-3 col-sm-6 col-xs-12">
-							<div>
-								<img src="{{ $list->avatar }}" style="width: 150px; height: 150px;">
+						<div class="flist  col-md-4 col-sm-6 col-xs-12">
+							<div class="flist_div">
+								<img src="{{ $list->avatar }}" style="width: 150px; height: 150px; object-fit: cover;">
 								<br>
-								<a class="btn btn-default" href='{{ url("/users/profile/$list->id") }}'>{{ $list->name }}</a>
+								<a class="btn btn-default uname" href='{{ url("/users/profile/$list->id") }}'>{{ $list->name }}</a>
 								<br>
 							
 								@if(Auth::user()->id != $list->id && !$connections->contains($list->id))
@@ -74,7 +75,7 @@
 
 								<form method="POST" action='{{url("/users/cancel_request/$list->id")}}'>
 									{{csrf_field()}}
-										<div class="modal fade" id="cancelreq{{$list->id}}" role="dialog">
+										<div class="modal fade cancelReq" id="cancelreq{{$list->id}}" role="dialog">
 											<div class="modal-dialog">
 												<div class="modal-content">
 													<div class="modal-header">
@@ -90,9 +91,9 @@
 															</div>
 														</div>
 													</div>
-													<div class="modal-footer">
+													{{-- <div class="modal-footer">
 														<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-													</div>
+													</div> --}}
 												</div>
 											</div>
 										</div>
@@ -100,7 +101,7 @@
 
 								<form method="POST" action='{{url("/users/unfriend/$list->id")}}'>
 									{{csrf_field()}}
-										<div class="modal fade" id="unfriend{{$list->id}}" role="dialog">
+										<div class="modal fade unfriend" id="unfriend{{$list->id}}" role="dialog">
 											<div class="modal-dialog">
 												<div class="modal-content">
 													<div class="modal-header">
@@ -116,9 +117,9 @@
 															</div>
 														</div>
 													</div>
-													<div class="modal-footer">
+													{{-- <div class="modal-footer">
 														<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-													</div>
+													</div> --}}
 												</div>
 											</div>
 										</div>
@@ -134,9 +135,9 @@
 			<div id="friendlist" class="tab-pane fade" >
 				<div class="row container-fluid searchresult">
 					@foreach($friends as $f)
-						<div class="flist col-md-3 col-sm-6 col-xs-12">
-							<div>
-								<img src="{{ $f->avatar }}" style="width: 150px; height: 150px;">
+						<div class="flist col-md-4 col-sm-6 col-xs-12">
+							<div class="flist_div">
+								<img src="{{ $f->avatar }}" style="width: 150px; height: 150px; object-fit: cover;">
 								
 								<br>
 								<a class="btn btn-default" href='{{ url("/users/profile/$f->id") }}'>{{ $f->name }}</a>
@@ -150,11 +151,11 @@
 			<div id="pendinglist" class="tab-pane fade" >
 				<div class="row container-fluid searchresult">
 					@foreach($pend_req as $pr)						
-							<div class="flist col-md-3 col-sm-6 col-xs-12">
-								<div>
+							<div class="flist col-md-4 col-sm-6 col-xs-12">
+								<div class="flist_div">
 									<form method="POST" action='{{url("accept_request/$pr->id")}}'>
 									{{csrf_field()}}
-										<img src="{{ $pr->avatar }}" style="width: 150px; height: 150px;">
+										<img src="{{ $pr->avatar }}" style="width: 150px; height: 150px; object-fit: cover;">
 									
 										<br>
 											<a class="btn btn-default" href='{{ url("/users/profile/$pr->id") }}'>{{ $pr->name }}</a>

@@ -13,8 +13,15 @@
 					<div class="well">		
 						<p>Name: {{$user->name}}</p>
 						<p>Email: {{$user->email}}</p>
-						<p><a href='{{ url("/users")}}'>Friends ({{count($friends)}})</a></p>
-						<p><a type="button" data-toggle="modal" data-target="#editprof">Edit Profile</a></p>
+						@if ($user->id == Auth::user()->id)
+							<p><a href='{{ url("/users")}}'>Friends ({{count($friends)}})</a></p>
+						@else
+							<p>Friends ({{count($friends)}})</p>
+						@endif
+						
+						@if ($user->id == Auth::user()->id)
+							<p><a type="button" data-toggle="modal" data-target="#editprof">Edit Profile</a></p>
+						@endif
 					</div>
 				</div>
 			</div>
@@ -35,28 +42,29 @@
 								<form class="form-horizontal" method="POST" action='{{url("/users/profile")}}' enctype="multipart/form-data">
 								{{csrf_field()}}
 									<div class="form-group">
-										<label class="control-label col-sm-4" for="pname">Name:</label>
+										<label class="control-label col-sm-3" for="pname">Name:</label>
 										<div class="col-sm-8">
-											<input type="text" id="pname" name="profname" value="{{$user->name}}">
+											<input class="form-control" type="text" id="pname" name="profname" value="{{$user->name}}">
 										</div>
 									</div>
 									<div class="form-group">
-										<label class="control-label col-sm-4" for="pemail">Email:</label> 
+										<label class="control-label col-sm-3" for="pemail">Email:</label> 
 										<div class="col-sm-8">
-											<input type="text" id="pemail" name="profemail" value="{{$user->email}}">
+											<input class="form-control" type="text" id="pemail" name="profemail" value="{{$user->email}}">
 										</div>
 									</div>
 									<div class="form-group">
-										<label class="control-label col-sm-4" for="ppic">Profile Picture:</label>
+										<label class="control-label col-sm-3" for="ppic">Profile Picture:</label>
 										<div class="col-sm-8">
-											<input type="file" name="profpic" value="{{asset($user->avatar)}}" accept="image/*">
+											<input class="form-control" type="file" name="profpic" value="{{asset($user->avatar)}}" accept="image/*">
 										</div>
 									</div>
+									<br>
 									<div class="form-group">
-										<div class="col-sm-offset-4 col-sm-8">
-											<button type="submit" class="btn btn-primary">Save</button>
+										<div class="col-sm-offset-2 col-sm-10 col-xs-offset-2 col-xs-10">
+											<button type="submit" class="btn btn-primary" style="width: 40%;">Save</button>
 
-											<a href='{{url("/users/profile")}}' class="btn btn-danger">Cancel</a>
+											<a href='{{url("/users/profile")}}' class="btn btn-danger" style="width: 40%;">Cancel</a>
 										</div>
 									</div>
 
@@ -70,12 +78,14 @@
 
 
 			<div class="col-md-8 col-sm-12 col-xs-12">
-				<div class="container-fluid">	
+				 <div > {{-- class="container-fluid" --}}
 					{{-- add new post (modal) --}}
-					<div class="addpostbtn">
-						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addpost">+ Add Post</button>
-					</div>
 
+					@if ($user->id == Auth::user()->id)
+						<div class="addpostbtn">
+							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addpost">+ Add Post</button>
+						</div>
+					@endif
 					<div class="modal fade" id="addpost" role="dialog">
 						<div class="modal-dialog">
 							<div class="modal-content">
@@ -87,46 +97,51 @@
 									<div class="container-fluid">
 										<form class="form-horizontal" method="POST" action='{{url("/users/profile/newPost")}}' enctype="multipart/form-data">
 										{{ csrf_field() }}
-											<div class="input-group">	
-												{{-- <label class="control-label" for="what">What: </label> --}}
-												<span class="input-group-btn">
-												<p>What:</p> <input type="text" class="form-control" name="whatpost" placeholder="What's your plan?" required>
-												
-												</span>
+											<div class="form-group">	
+												<label class="control-label col-sm-3 col-xs-2" for="addplan">Plan: </label>
+												<div class="col-sm-8 col-xs-10">
+													<input type="text" class="form-control" id="addplan" name="whatpost" placeholder="Write your plan here" required>
+												</div>
 											</div>
-											<div class="input-group">
-												<span class="input-group-btn">
-												<p>Where:</p><input type="text" class="form-control" name="wherepost" placeholder="Where do you plan to do this?" required>
-												</span>
+											<div class="form-group">
+												<label class="control-label col-sm-3 col-xs-2" for="addPlace">Place: </label>
+												<div class="col-sm-8 col-xs-10">
+													<input type="text" class="form-control" id="addPlace" name="wherepost" placeholder="Location of this event" required>
+												</div>
 											</div>
-											<div class="input-group">
-												<span class="input-group-btn">
-												<p>When:</p><input type="date" class="form-control" name="whenpost" placeholder="When do you plan this?" required>
-												</span>
+											<div class="form-group">
+												<label class="control-label col-sm-3 col-xs-2" for="addDate">Date: </label>
+												<div class="col-sm-8 col-xs-10">
+													<input type="date" class="form-control" id="addDate" name="whenpost" placeholder="When do you plan this?" required>
+												</div>
 											</div>
-											{{-- <div class="input-group">
-												<span class="input-group-btn">
-												<p>Who:</p><input type="text" class="form-control" name="whopost" placeholder="Who are your buddies for this?">
+											{{-- <div class="form-group">
+												<input type="text" class="form-control" name="whopost" placeholder="Who are your buddies for this?">
 												</span>
 											</div> --}}
-											<div class="input-group">
-												<span class="input-group-btn">
-												<p>Caption this:</p><textarea name="caption" id="content" class="form-control" placeholder="Caption this post..."></textarea>
-												</span>
+											<div class="form-group">
+												<label class="control-label col-sm-3 col-xs-2" for="addNote">Note: </label>
+												<div class="col-sm-8 col-xs-10">
+													<textarea name="caption" id="content" id="addNote" class="form-control" placeholder="Notes for this event" style="resize: vertical;"></textarea>
+												</div>
 											</div>
-											<br>
-											<div class="input-group">
+											{{-- <br> --}}
+											<div class="form-group">
 												{{-- <label for="imagepost" id="file-upload"><i class="fa fa-image"></i>Upload Image</label>
 												<input type="file" id="imagepost" name="imgpost" accept="image/*"> --}}
-											
-												Insert Image: <input type="file" name="imgpost" accept="image/*">
+												<label class="control-label col-sm-3" for="addImage">Insert Image: </label>
+												<div class="col-sm-8">
+													<input class="form-control" id="addImage" type="file" name="imgpost" accept="image/*">
+												</div>
 											</div>
 
 											<br>
-											<div class="input-group">
-												<input type="submit" class="btn btn-primary" name="postnow" value="Post">&nbsp;&nbsp;
+											<div class="form-group">
+												<div class="col-sm-offset-2 col-sm-10 col-xs-offset-2 col-xs-10">
+													<input type="submit" class="btn btn-primary" name="postnow" value="Post" style="width: 40%;">
 
-												<a href='{{url("/users/profile")}}'><input type="button" class="btn btn-danger" name="cancel" value="Cancel"></a>
+													<a href='{{url("/users/profile")}}'><input type="button" class="btn btn-danger" name="cancel" value="Cancel" style="width: 40%;"></a>
+												</div>
 											</div>
 
 										</form>
@@ -142,62 +157,100 @@
 				@else --}}
 					@foreach($posts as $post)
 						@if(($user->id) == ($post->user->id))
-							<div class="media img-thumbnail">
-								<div class="row">
-									<div class="col-md-10 col-sm-10 col-xs-10">
-									  <div class="media-left">
-									    <img src="{{asset($post->user->avatar)}}" class="media-object img-circle" style="width:70px; height: 70px; object-fit: cover;">
+							<div class="row rowPost img-thumbnail">
+								<div class="">
+									<div class="profilePost col-md-11 col-sm-11 col-xs-10">
+									  <div class="userAvatar">
+									    <img src="{{asset($post->user->avatar)}}" class=" img-circle">
 									  </div>
 
 
-									  <div class="media-body">
-									  	<div class="media-heading">
+									  <div class="">
+									  	<div class="avatarDateDiv">
 									  		<h4>{{$post->user->name}}</h4>
-									  		<h6><em>Posted  {{$post->created_at->diffForHumans()}}</em></h6>
+									  		<span class="datePosted"><i class="fa fa-clock-o" aria-hidden="true"></i>  {{$post->created_at->diffForHumans()}}</span>
 									  	</div>
-									  	<hr>
-									  	<div class="well" style="justify-content: center;">
+										  {{-- <hr> --}}
+										  <br>
+									  	<div class="well wellDiv" style="justify-content: center;">
 									  		<div style="text-align: center; padding: 10px;">
 										  		@if(!empty($post->imagepost))
-										    		<img src="{{asset($post->imagepost)}}" style="width: auto; height: 200px;">
+										    		<img src="{{asset($post->imagepost)}}" class="imagePost">
 										   		@endif
 										   	</div>
-										   <div class="row">
-											    <span class="col-md-2 col-sm-2 col-xs-2">Plan:</span> <span class="{{-- col-md-offset-1 col-sm-offset-1 col-xs-offset-1 --}} col-md-10 col-sm-10 col-xs-10"><strong>{{$post->what}} </strong></span>
+										   {{-- <div class="row">
+											    <span class="col-md-2 col-sm-2 col-xs-2">Plan:</span> <span class=" col-md-10 col-sm-10 col-xs-10"><strong>{{$post->what}} </strong></span>
 
-											    <span class="col-md-2 col-sm-2 col-xs-2">Where:</span> <span class="{{-- col-md-offset-1 col-sm-offset-1 col-xs-offset-1 --}} col-md-10 col-sm-10 col-xs-10"><strong>{{$post->where}} </strong></span>
+											    <span class="col-md-2 col-sm-2 col-xs-2">Where:</span> <span class=" col-md-10 col-sm-10 col-xs-10"><strong>{{$post->where}} </strong></span>
 
-											    <span class="col-md-2 col-sm-2 col-xs-2">When:</span> <span class="{{-- col-md-offset-1 col-sm-offset-1 col-xs-offset-1 --}} col-md-10 col-sm-10 col-xs-10"><strong> {{$post->when}} </strong></span>
+											    <span class="col-md-2 col-sm-2 col-xs-2">When:</span> <span class=" col-md-10 col-sm-10 col-xs-10"><strong> {{$post->when}} </strong></span>
 											    @if (!empty($post->caption))
 											    	<span class="col-md-2 col-sm-2 col-xs-2">Caption:</span> <span class="col-md-10 col-sm-10 col-xs-10"><strong> {{$post->caption}} </strong></span>
 											    @endif
 											    
+										   </div> --}}
+
+										   	<div class="postContent">
+												<div class="input-group input-group-md">
+													<span class="input-group-addon inputGroupSpan" id="sizing-addon2"><i class="fa fa-envelope-open-o" title="Plan" aria-hidden="true"></i><span class="hideOnMobile">&nbsp;&nbsp;Plan</span></span><textarea class="form-control txtArea" aria-describedby="sizing-addon2" readonly>{{$post->what}}</textarea>
+												</div>
+			
+												<div class="input-group input-group-md">
+													<span class="input-group-addon inputGroupSpan" id="sizing-addon2"><i class="fa fa-location-arrow" title="Where" aria-hidden="true"></i><span class="hideOnMobile">&nbsp;&nbsp;Place</span></span><textarea rows="1" class="form-control txtArea" aria-describedby="sizing-addon2" readonly>{{$post->where}}</textarea>
+												</div>
+												
+												<div class="input-group input-group-md">
+													<span class="input-group-addon inputGroupSpan" id="sizing-addon2"><i class="fa fa-calendar-o" title="When" aria-hidden="true"></i><span class="hideOnMobile">&nbsp;&nbsp;Date</span></span><textarea rows="1" class="form-control txtArea" aria-describedby="sizing-addon2" readonly>{{$post->when}}</textarea>
+												</div>
+												@if (!empty($post->caption))
+													<div class="input-group input-group-md">
+														<span class="input-group-addon inputGroupSpan" id="sizing-addon2"><i class="fa fa-sticky-note-o" title="Notes" aria-hidden="true"></i><span class="hideOnMobile">&nbsp;&nbsp;Note</span></span><textarea class="form-control txtArea" aria-describedby="sizing-addon2" readonly>{{$post->caption}}</textarea>
+													</div>
+												@endif
 											</div>
 										    
 									    </div>
-									    <hr>
+									    {{-- <hr> --}}
 									    {{-- <br> --}}
-									    <div>
-										    @if(!Auth::user()->likes()->where('post_id',$post->id)->first())
-										    	<button id="like{{$post->id}}" name="like" onclick="like('{{$post->id}}');"><span class="fa fa-thumbs-o-up">like </span></button><span id='likeCount{{$post->id}}'>( {{count($post->likes)}} )</span>
-										    @else
-												<button id="like{{$post->id}}" name="unlike" onclick="like('{{$post->id}}');"><span class="fa fa-thumbs-o-down" aria-hidden="true">unlike </span></button>
-												<span id='likeCount{{$post->id}}'>( {{count($post->likes)}} )</span>
-										    @endif
-
+									    <div class="likeCommentDiv">
+											<div class="likeDiv">
+												@if(!Auth::user()->likes()->where('post_id',$post->id)->first())
+													<button class="btnTrans" id="like{{$post->id}}" name="like" onclick="like('{{$post->id}}');"><span><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><span class="hideOnMobile"> Like </span></span></button>
+													@if(count($post->likes) == 0)
+														<span id='likeCount{{$post->id}}'>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+													@else
+														<span id='likeCount{{$post->id}}'>({{count($post->likes)}})</span>
+													@endif
+												@else
+													<button class="btnTrans" id="like{{$post->id}}" name="unlike" onclick="like('{{$post->id}}');"><span><i class="fa fa-thumbs-up" aria-hidden="true"></i><span class="hideOnMobile"> Liked </span></span></button>
+													@if(count($post->likes) == 0)
+														<span id='likeCount{{$post->id}}'>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+													@else
+														<span id='likeCount{{$post->id}}'>({{count($post->likes)}})</span>
+													@endif
+												@endif
+											</div>
 										    {{-- <hr> --}}
 										   
-										    {{-- Add a comment --}}
-										    &nbsp;&nbsp;<button {{-- class="btn btn-default" --}} id="showComment{{$post->id}}" onclick="showComment({{$post->id}})">Show Comment</button>{{$post->comments->count()}}
-										    <hr>
-										    <div id="commentdiv{{$post->id}}" style="display: none;">
+											{{-- Add a comment --}}
+											<div class="commentDiv">
+												&nbsp;&nbsp;&nbsp;&nbsp;<button class="btnTrans" {{-- class="btn btn-default" --}} id="showComment{{$post->id}}" onclick="showComment({{$post->id}})"><span><i class="fa fa-comment-o" aria-hidden="true"></i><span class="hideOnMobile"> Comment</span></span></button>
+												@if(count($post->comments) == 0)
+													<span id="commentCount">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+												@else
+													<span id="commentCount">({{$post->comments->count()}})</span>
+												@endif
+											</div>
+										    {{-- <hr> --}}
+										    <div class="showedComments" id="commentdiv{{$post->id}}" style="display: none;">
 											    <div class="card" >
 											    	<div class="card-block">
 											    		<form method="POST" action='{{url("/users/$post->id/comments")}}'>
 											    		{{ csrf_field() }}
 											    		{{-- {{method_field('PATCH')}} --}}
 											    			<div class="form-group">
-											    				<textarea class="comment" name="body" id="body{{$post->id}}" placeholder="Your comment here..." class="form-control" required></textarea>
+																<img class="img-circle commentAvatar" src="{{asset(Auth::user()->avatar)}}" alt="User avatar" style="width:40px; height: 40px; object-fit: cover;">
+																<textarea class="profPostComment txtArea comment" name="body" id="body{{$post->id}}" placeholder=" Hit 'Enter' to post a comment..." class="form-control" required></textarea>
 											    			</div>
 											    			{{-- <div class="form-group">
 											    				<button type="button" id="{{$post->id}}" class="btn btn-primary" onclick="addComment(this.id)">Add Comment</button>
@@ -212,16 +265,23 @@
 											    	<ul class="list-group" id="showComments{{$post->id}}">
 											    	@foreach($post->comments as $comment)
 											    		<li class="list-group-item">
-											    			<strong>
-											    				{{$comment->created_at->diffForHumans()}}: &nbsp;
-											    			</strong>
-											    			{{$comment->body}}
-											    			by:&nbsp;{{$comment->user->name}}
+											    			<div class="commentUser">
+																<img class="img-circle commentAvatar" src="{{asset($comment->user->avatar)}}" alt="User avatar" style="width:34px; height: 34px; object-fit: cover;">
+																<div class="commenterDateDiv">
+																	<strong>{{$comment->user->name}}</strong>
+																	<span class="dateCommented">
+																		<i class="fa fa-clock-o" aria-hidden="true"></i>  {{$comment->created_at->diffForHumans()}} 
+																	</span>
+																</div>
+															</div>
+															<div class="commentBody">
+																{{$comment->body}}
+															</div>
 											    		</li>
 											    	@endforeach
 											    	</ul>
 											    </div>
-											    <hr>
+											    {{-- <hr> --}}
 											</div>
 										</div>
 
@@ -230,7 +290,7 @@
 
 
 									@if ($post->user->id == Auth::user()->id)								
-										<div class="col-md-offset-1 col-md-1 col-sm-offset-1 col-sm-1  col-xs-1">
+										<div class="profileEditDeletePost col-md-1 col-sm-1 col-xs-1">
 											<div class="btn-group ">
 											  	<button id="ddown-edit" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 											    	<span class="caret"></span>
@@ -251,7 +311,7 @@
 
 							{{-- edit post modal --}}
 
-							<div class="modal fade" id="editpost{{$post->id}}" role="dialog">
+							<div class="modal fade editPost" id="editpost{{$post->id}}" role="dialog">
 								<div class="modal-dialog">
 									<div class="modal-content">
 										<div class="modal-header">
@@ -267,41 +327,42 @@
 												{{-- @foreach ($posts as $post) --}}
 													
 													<div class="form-group">
-														<label class="control-label col-sm-4" for="pwhat">What:</label>
-														<div class="col-sm-8">
-															<input type="text" id="pwhat" name="postwhat" value="{{$post->what}}" required>
+														<label class="control-label col-sm-3 col-xs-2" for="pwhat">Plan:</label>
+														<div class="col-sm-8 col-xs-10">
+															<input class="form-control" type="text" id="pwhat" name="postwhat" value="{{$post->what}}" required>
 														</div>
 													</div>
 													<div class="form-group">
-														<label class="control-label col-sm-4" for="pwhere">Where:</label>
-														<div class="col-sm-8">
-															<input type="text" id="pwhere" name="postwhere" value="{{$post->where}}" required>
+														<label class="control-label col-sm-3 col-xs-2" for="pwhere">Place:</label>
+														<div class="col-sm-8 col-xs-10">
+															<input class="form-control" type="text" id="pwhere" name="postwhere" value="{{$post->where}}" required>
 														</div>
 													</div>
 													<div class="form-group">
-														<label class="control-label col-sm-4" for="pwhen">When:</label>
-														<div class="col-sm-8">
-															<input type="date" id="pwhen" name="postwhen" value="{{$post->when}}" required>
+														<label class="control-label col-sm-3 col-xs-2" for="pwhen">Date:</label>
+														<div class="col-sm-8 col-xs-10">
+															<input class="form-control" type="date" id="pwhen" name="postwhen" value="{{$post->when}}" required>
 														</div>
 													</div>
 													<div class="form-group">
-														<label class="control-label col-sm-4" for="pcaption">Caption:</label>
-														<div class="col-sm-8">
-															<textarea name="postcaption" id="pcaption" class="form-control">{{$post->caption}}</textarea>
+														<label class="control-label col-sm-3 col-xs-2" for="pcaption">Note:</label>
+														<div class="col-sm-8 col-xs-10">
+															<textarea name="postcaption" id="pcaption" class="form-control" style="resize: vertical;">{{$post->caption}}</textarea>
 															{{-- <input type="text" id="pcaption" name="postcaption" value="{{$post->caption}}"> --}}
 														</div>
 													</div>
 													<div class="form-group">
-														<label class="control-label col-sm-4" for="pimage">Post Image:</label>
+														<label class="control-label col-sm-3" for="pimage">Post Image:</label>
 														<div class="col-sm-8">
-															<input type="file" name="postimage" value="{{$post->imagepost}}" accept="image/*">
+															<input class="form-control" type="file" name="postimage" value="{{$post->imagepost}}" accept="image/*">
 														</div>
 													</div>
+													<br>
 													<div class="form-group">
-														<div class="col-sm-offset-4 col-sm-8">
-															<button type="submit" class="btn btn-primary">Save</button>
+														<div class="col-sm-offset-2 col-sm-10 col-xs-offset-2 col-xs-10">
+															<button type="submit" class="btn btn-primary" style="width: 40%;">Save</button>
 
-															<a href='{{url("/users/profile")}}' class="btn btn-danger">Cancel</a>
+															<a href='{{url("/users/profile")}}' class="btn btn-danger" style="width: 40%;">Cancel</a>
 														</div>
 													</div>
 
@@ -318,7 +379,7 @@
 							</div>
 
 							{{-- delete post modal --}}
-							<div class="modal fade" id="deletepost{{$post->id}}" role="dialog">
+							<div class="modal fade deletePost" id="deletepost{{$post->id}}" role="dialog">
 								<div class="modal-dialog">
 									<div class="modal-content">
 										<div class="modal-header">
@@ -338,10 +399,10 @@
 													</div>
 													
 													<div class="form-group">
-														<div class="col-sm-offset-4 col-sm-8">
-															<button type="submit" class="btn btn-primary">Yes</button>
-
-															<a href='{{url("/users/profile")}}' class="btn btn-danger">No</a>
+														<div class="col-sm-offset-2 col-sm-10 col-xs-offset-2 col-xs-10">
+															<button type="submit" class="btn btn-primary" style="width: 40%;">Yes</button>
+															
+															<a href='{{url("/users/profile")}}' class="btn btn-danger" style="width: 40%;">No</a>
 														</div>
 													</div>
 
@@ -405,9 +466,9 @@
 				post_id : id,
 			},
 			success: function(data){
-				$('#like'+id).html('<span class="fa fa-thumbs-o-down" aria-hidden="true">unlike</span>');
+				$('#like'+id).html('<span><i class="fa fa-thumbs-up" aria-hidden="true"></i><span class="hideOnMobile"> Liked</span></span>');
 				$('#like'+id).attr('name','unlike');	
-				$('#likeCount'+id).html(data);	
+				$('#likeCount'+id).html(' '+data);	
 			},
 			error: function(response, status, error) {
 				console.log("Error Found")
@@ -425,9 +486,9 @@
 				post_id : id,
 			},
 			success: function(data){
-				$('#like'+id).html('<span class="fa fa-thumbs-o-up" aria-hidden="true">like</span>');
+				$('#like'+id).html('<span><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><span class="hideOnMobile"> Like</span></span>');
 				$('#like'+id).attr('name','like');
-				$('#likeCount'+id).html(data);			
+				$('#likeCount'+id).html(' '+data);			
 			},
 			error: function(response, status, error) {
 				console.log("Error Found")

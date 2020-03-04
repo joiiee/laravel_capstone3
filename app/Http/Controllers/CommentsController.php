@@ -17,12 +17,19 @@ class CommentsController extends Controller
     	$post->addComment(request('body'));
         foreach($post->comments as $comment){
             echo '<li class="list-group-item">
-                <strong>'.
-                    $comment->created_at->diffForHumans().': &nbsp;
-                </strong>'.
-                $comment->body.'
-                by:&nbsp;'.$comment->user->name.'
-            </li>';
+                    <div class="commentUser">
+                        <img class="img-circle commentAvatar" alt="User avatar" style="width: 34px; height: 34px; object-fit: cover;" src="'.
+                        asset($comment->user->avatar).' ">
+                        <div>
+                            <strong>'.$comment->user->name.'</strong>
+                            <span class="dateCommented">
+                                <i class="fa fa-clock-o" aria-hidden="true"></i>  '.$comment->created_at->diffForHumans().'</span>
+                        </div>
+                    </div>
+                    <div class="commentBody">'.
+                        $comment->body
+                    .'</div>
+                 </li>';
         }
     	// Comment::create([
     	// 	'body' => request('body'),
