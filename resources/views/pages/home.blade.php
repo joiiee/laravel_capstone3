@@ -79,14 +79,14 @@
 								{{-- <hr> --}}
 								<div class="likeDiv">
 									@if(!Auth::user()->likes()->where('post_id',$post->id)->first())
-										<button class="btnTrans" id="like{{$post->id}}" name="like" ontouchstart="like('{{$post->id}}');" onclick="like('{{$post->id}}');"><span><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><span class="hideOnMobile"> Like</span></span></button>
+										<button class="btnTrans" id="like{{$post->id}}" name="like" onclick="like('{{$post->id}}');"><span><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><span class="hideOnMobile"> Like</span></span></button>
 										@if(count($post->likes) == 0) 
 											<span id='likeCount{{$post->id}}'>&nbsp;&nbsp;&nbsp;&nbsp;</span>	
 										@else
 											<span id='likeCount{{$post->id}}'>({{count($post->likes)}})</span>
 										@endif
 									@else
-										<button class="btnTrans" id="like{{$post->id}}" name="unlike" ontouchstart="like('{{$post->id}}');" onclick="like('{{$post->id}}');"><span><i class="fa fa-thumbs-up" aria-hidden="true"></i><span class="hideOnMobile"> Liked</span></span></button>
+										<button class="btnTrans" id="like{{$post->id}}" name="unlike" onclick="like('{{$post->id}}');"><span><i class="fa fa-thumbs-up" aria-hidden="true"></i><span class="hideOnMobile"> Liked</span></span></button>
 										@if(count($post->likes) == 0) 	
 											<span id='likeCount{{$post->id}}'>&nbsp;&nbsp;&nbsp;&nbsp;</span>	
 										@else
@@ -98,7 +98,7 @@
 							   
 								{{-- Add a comment --}}
 								<div class="commentDiv">
-									&nbsp;&nbsp;&nbsp;&nbsp;<button class="btnTrans" {{-- class="btn btn-default" --}} id="showComment{{$post->id}}" ontouchstart="showComment({{$post->id}})" onclick="showComment({{$post->id}})"><span><i class="fa fa-comment-o" aria-hidden="true"></i><span class="hideOnMobile"> Comment</span></span></button> 
+									&nbsp;&nbsp;&nbsp;&nbsp;<button class="btnTrans" {{-- class="btn btn-default" --}} id="showComment{{$post->id}}" onclick="showComment({{$post->id}})"><span><i class="fa fa-comment-o" aria-hidden="true"></i><span class="hideOnMobile"> Comment</span></span></button> 
 									@if(count($post->comments) == 0)
 										<span id="commentCount">&nbsp;&nbsp;&nbsp;&nbsp;</span>
 									@else
