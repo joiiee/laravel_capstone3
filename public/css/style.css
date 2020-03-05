@@ -501,12 +501,16 @@ body {
 	}
 	
 	.profPostComment {
-		width: 65%;
+		width: 62%;
 	}
 
 	.likeDiv, 
 	.commentDiv {
 		width: 27%;
+	}
+
+	.commentAvatar {
+		margin-right: 5px;
 	}
 }
 
